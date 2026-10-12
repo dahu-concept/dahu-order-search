@@ -1,0 +1,133 @@
+# Copyright (C) 2026 Hugo Vial-Jaime
+# This file is distributed under the MIT licence.
+msgid ""
+msgstr ""
+"Project-Id-Version: Dahu Order Search\n"
+"Report-Msgid-Bugs-To: https://dahu-concept.fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2026-10-09 13:52+0000\n"
+"X-Domain: dahu-order-search\n"
+
+#: includes/class-dahu-order-search-settings.php:292
+msgid "Below this many characters the extra sources do not run, and the native search is left to answer on its own."
+msgstr ""
+
+#: includes/class-dahu-order-search-sources.php:245
+msgid "Billing address: %s"
+msgstr ""
+
+#: includes/class-dahu-order-search-sources.php:74
+msgid "Customer — company, phone, email, name, street, town, postcode, on both the billing and the shipping address"
+msgstr ""
+
+#: includes/class-dahu-order-search-settings.php:235
+msgid "Dahu Order Search adds sources to the search box above the order list. What it finds is added to WooCommerce's own results and ranked by how well it matches — it never replaces the search you already know."
+msgstr ""
+
+#: dahu-order-search.php:94
+msgid "Dahu Order Search needs WooCommerce. It is doing nothing until WooCommerce is active."
+msgstr ""
+
+#: includes/class-dahu-order-search-settings.php:304
+msgid "Left alone, WooCommerce shows every order in the shop instead, which reads as a search that stopped working. Switch this off to get WooCommerce's own behaviour back."
+msgstr ""
+
+#: includes/class-dahu-order-search-sources.php:638
+msgid "Linked from order #%d"
+msgstr ""
+
+#: includes/class-dahu-order-search-settings.php:279
+msgid "Linked order meta keys"
+msgstr ""
+
+#: includes/class-dahu-order-search-settings.php:37
+msgid "Linked orders — also show orders whose meta points at a found order, and the orders a found order points at (returns, replacements, renewals)"
+msgstr ""
+
+#: includes/class-dahu-order-search-sources.php:610
+msgid "Linked to order #%d"
+msgstr ""
+
+#. translators: 1: date, 2: an excerpt of the note. */
+#: includes/class-dahu-order-search-sources.php:542
+msgid "Note of %1$s: %2$s"
+msgstr ""
+
+#: includes/class-dahu-order-search-settings.php:273
+msgid "One key per line. A single asterisk means every visible line meta — the internal ones are always skipped, because they hold bare numbers that would make any number match half the shop."
+msgstr ""
+
+#: includes/class-dahu-order-search-settings.php:262
+msgid "One key per line. A tracking number, an invoice number, a reference from another system — anything stored on the order that somebody might search for."
+msgstr ""
+
+#: includes/class-dahu-order-search-settings.php:283
+msgid "One key per line. Keys whose value is another order's number. Both directions are followed, because only one of them is ever stored."
+msgstr ""
+
+#: includes/class-dahu-order-search-sources.php:499
+msgid "Order line %1$s: %2$s"
+msgstr ""
+
+#: includes/class-dahu-order-search-settings.php:269
+msgid "Order line meta keys"
+msgstr ""
+
+#: includes/class-dahu-order-search-sources.php:84
+msgid "Order line meta — the keys listed below (a serial number typed on a line, an engraving, a size)"
+msgstr ""
+
+#: includes/class-dahu-order-search-sources.php:439
+msgid "Order meta %1$s: %2$s"
+msgstr ""
+
+#: includes/class-dahu-order-search-settings.php:258
+msgid "Order meta keys"
+msgstr ""
+
+#: includes/class-dahu-order-search-sources.php:79
+msgid "Order meta — the keys listed below (tracking number, invoice number, external reference…)"
+msgstr ""
+
+#: includes/class-dahu-order-search-sources.php:89
+msgid "Order notes"
+msgstr ""
+
+#: includes/class-dahu-order-search-settings.php:171 includes/class-dahu-order-search-settings.php:172 includes/class-dahu-order-search-settings.php:232
+msgid "Order search"
+msgstr ""
+
+#: includes/class-dahu-order-search-settings.php:301
+msgid "Return nothing when the \"Order ID\" filter is used with text that is not a number"
+msgstr ""
+
+#: dahu-order-search.php:127
+msgid "Settings"
+msgstr ""
+
+#: includes/class-dahu-order-search-sources.php:243
+msgid "Shipping address: %s"
+msgstr ""
+
+#: includes/class-dahu-order-search-settings.php:289
+msgid "Shortest search term"
+msgstr ""
+
+#: includes/class-dahu-order-search-settings.php:243 includes/class-dahu-order-search-settings.php:246
+msgid "Sources"
+msgstr ""
+
+#: includes/class-dahu-order-search-settings.php:263
+msgid "To find the key a value is stored under, open an order and look at its custom fields."
+msgstr ""
+
+#: includes/class-dahu-order-search-settings.php:297
+msgid "WooCommerce correction"
+msgstr ""
+
+#: includes/class-dahu-order-search-settings.php:225
+msgid "You do not have permission to change these settings."
+msgstr ""
+
