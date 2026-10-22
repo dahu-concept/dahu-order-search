@@ -71,11 +71,6 @@
  * ------------------------------------------------------------------------
  */
 
-.dahu-order-search__intro {
-	max-width: var( --dahu-admin-measure );
-	color: var( --dahu-admin-text-muted );
-}
-
 /* The source list is a column of checkboxes, each with a sentence next to
  * it. Without this they run together on one line and the sentences wrap
  * into each other.

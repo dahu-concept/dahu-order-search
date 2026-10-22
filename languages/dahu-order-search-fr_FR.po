@@ -6,127 +6,195 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: fr_FR\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"PO-Revision-Date: 2026-10-09 13:52+0000\n"
+"PO-Revision-Date: 2026-10-21 10:19+0000\n"
 "X-Generator: dahu i18n-build\n"
 
-#: includes/class-dahu-order-search-settings.php:292
+#: \dahu-order-search.php:182
+msgid "A surname, part of an address, a telephone number, a serial."
+msgstr "Un nom, un bout d’adresse, un téléphone, un numéro de série."
+
+#: \dahu-order-search.php:209
+msgid "Add your own keys"
+msgstr "Ajoutez vos propres clés"
+
+#: \dahu-order-search.php:204
+msgid "Added, never replaced"
+msgstr "Ajouté, jamais remplacé"
+
+#: \dahu-order-search.php:181
+msgid "Any detail"
+msgstr "N’importe quel détail"
+
+#: \dahu-order-search.php:215
+msgid "Below this length, only the native search answers."
+msgstr "En dessous de cette longueur, seule la recherche native répond."
+
+#: \includes\class-dahu-order-search-settings.php:305
 msgid "Below this many characters the extra sources do not run, and the native search is left to answer on its own."
 msgstr "En deçà de ce nombre de caractères, les sources supplémentaires ne tournent pas et la recherche native répond seule."
 
-#: includes/class-dahu-order-search-sources.php:245
+#: \includes\class-dahu-order-search-sources.php:245
 msgid "Billing address: %s"
 msgstr "Adresse de facturation : %s"
 
-#: includes/class-dahu-order-search-sources.php:74
+#: \dahu-order-search.php:185
+msgid "Both stores"
+msgstr "Les deux stockages"
+
+#: \dahu-order-search.php:190
+msgid "Built for somebody with a customer waiting."
+msgstr "Pensée pour quelqu’un qui a un client en ligne."
+
+#: \includes\class-dahu-order-search-sources.php:74
 msgid "Customer — company, phone, email, name, street, town, postcode, on both the billing and the shipping address"
 msgstr "Client — société, téléphone, e-mail, nom, rue, ville, code postal, sur l'adresse de facturation comme sur celle de livraison"
 
-#: includes/class-dahu-order-search-settings.php:235
-msgid "Dahu Order Search adds sources to the search box above the order list. What it finds is added to WooCommerce's own results and ranked by how well it matches — it never replaces the search you already know."
-msgstr "Dahu Order Search ajoute des sources au champ de recherche de la liste des commandes. Ce qu'il trouve s'ajoute aux résultats de WooCommerce et se classe par pertinence : il ne remplace jamais la recherche que vous connaissez."
-
-#: dahu-order-search.php:94
+#: \dahu-order-search.php:94
 msgid "Dahu Order Search needs WooCommerce. It is doing nothing until WooCommerce is active."
 msgstr "Dahu Order Search a besoin de WooCommerce. Il ne fait rien tant que WooCommerce n'est pas actif."
 
-#: includes/class-dahu-order-search-settings.php:304
+#: \dahu-order-search.php:174
+msgid "Done"
+msgstr "Terminé"
+
+#: \dahu-order-search.php:205
+msgid "Extra sources add to the native search results."
+msgstr "Les sources supplémentaires s'ajoutent aux résultats de la recherche native."
+
+#: \dahu-order-search.php:189
+msgid "Fast where it matters"
+msgstr "Rapide là où il faut"
+
+#: \dahu-order-search.php:163 \includes\class-dahu-order-search-settings.php:247
+msgid "Finds an order by what the customer tells you on the telephone."
+msgstr "Retrouve une commande avec ce que le client vous dit au téléphone."
+
+#: \includes\class-dahu-order-search-settings.php:317
 msgid "Left alone, WooCommerce shows every order in the shop instead, which reads as a search that stopped working. Switch this off to get WooCommerce's own behaviour back."
 msgstr "Sans cette correction, WooCommerce affiche à la place toutes les commandes de la boutique, ce qui se lit comme une recherche en panne. Décochez pour retrouver le comportement d'origine."
 
-#: includes/class-dahu-order-search-sources.php:638
+#: \includes\class-dahu-order-search-sources.php:638
 msgid "Linked from order #%d"
 msgstr "Liée depuis la commande n° %d"
 
-#: includes/class-dahu-order-search-settings.php:279
+#: \includes\class-dahu-order-search-settings.php:292
 msgid "Linked order meta keys"
 msgstr "Clés de méta de commande liée"
 
-#: includes/class-dahu-order-search-settings.php:37
+#: \includes\class-dahu-order-search-settings.php:37
 msgid "Linked orders — also show orders whose meta points at a found order, and the orders a found order points at (returns, replacements, renewals)"
 msgstr "Commandes liées — afficher aussi les commandes dont une méta pointe vers une commande trouvée, et celles vers lesquelles une commande trouvée pointe (retours, remplacements, renouvellements)"
 
-#: includes/class-dahu-order-search-sources.php:610
+#: \includes\class-dahu-order-search-sources.php:610
 msgid "Linked to order #%d"
 msgstr "Liée à la commande n° %d"
 
+#: \dahu-order-search.php:173
+msgid "Next"
+msgstr "Suivant"
+
 #. translators: 1: date, 2: an excerpt of the note. */
-#: includes/class-dahu-order-search-sources.php:542
+#: \includes\class-dahu-order-search-sources.php:542
 msgid "Note of %1$s: %2$s"
 msgstr "Note du %1$s : %2$s"
 
-#: includes/class-dahu-order-search-settings.php:273
+#: \includes\class-dahu-order-search-settings.php:286
 msgid "One key per line. A single asterisk means every visible line meta — the internal ones are always skipped, because they hold bare numbers that would make any number match half the shop."
 msgstr "Une clé par ligne. Un astérisque seul signifie toutes les métas d'article visibles : les métas internes sont toujours écartées, parce qu'elles contiennent des nombres nus et que n'importe quel nombre correspondrait alors à la moitié de la boutique."
 
-#: includes/class-dahu-order-search-settings.php:262
+#: \includes\class-dahu-order-search-settings.php:275
 msgid "One key per line. A tracking number, an invoice number, a reference from another system — anything stored on the order that somebody might search for."
 msgstr "Une clé par ligne. Un numéro de suivi, un numéro de facture, une référence venue d'un autre système : tout ce qui est stocké sur la commande et que quelqu'un pourrait chercher."
 
-#: includes/class-dahu-order-search-settings.php:283
+#: \includes\class-dahu-order-search-settings.php:296
 msgid "One key per line. Keys whose value is another order's number. Both directions are followed, because only one of them is ever stored."
 msgstr "Une clé par ligne. Des clés dont la valeur est le numéro d'une autre commande. Les deux sens sont suivis, parce qu'un seul des deux est jamais enregistré."
 
-#: includes/class-dahu-order-search-sources.php:499
+#: \dahu-order-search.php:210
+msgid "One order meta key per line, such as a tracking number."
+msgstr "Une clé méta de commande par ligne, un numéro de suivi par exemple."
+
+#: \includes\class-dahu-order-search-sources.php:499
 msgid "Order line %1$s: %2$s"
 msgstr "Article : %1$s = %2$s"
 
-#: includes/class-dahu-order-search-settings.php:269
+#: \includes\class-dahu-order-search-settings.php:282
 msgid "Order line meta keys"
 msgstr "Clés de méta d'article"
 
-#: includes/class-dahu-order-search-sources.php:84
+#: \includes\class-dahu-order-search-sources.php:84
 msgid "Order line meta — the keys listed below (a serial number typed on a line, an engraving, a size)"
 msgstr "Métas d'article — les clés listées ci-dessous (un numéro de série saisi sur une ligne, une gravure, une taille)"
 
-#: includes/class-dahu-order-search-sources.php:439
+#: \includes\class-dahu-order-search-sources.php:439
 msgid "Order meta %1$s: %2$s"
 msgstr "Commande : %1$s = %2$s"
 
-#: includes/class-dahu-order-search-settings.php:258
+#: \includes\class-dahu-order-search-settings.php:271
 msgid "Order meta keys"
 msgstr "Clés de méta de commande"
 
-#: includes/class-dahu-order-search-sources.php:79
+#: \includes\class-dahu-order-search-sources.php:79
 msgid "Order meta — the keys listed below (tracking number, invoice number, external reference…)"
 msgstr "Métas de commande — les clés listées ci-dessous (numéro de suivi, numéro de facture, référence externe…)"
 
-#: includes/class-dahu-order-search-sources.php:89
+#: \includes\class-dahu-order-search-sources.php:89
 msgid "Order notes"
 msgstr "Notes de commande"
 
-#: includes/class-dahu-order-search-settings.php:171 includes/class-dahu-order-search-settings.php:172 includes/class-dahu-order-search-settings.php:232
+#: \dahu-order-search.php:162 \includes\class-dahu-order-search-settings.php:184 \includes\class-dahu-order-search-settings.php:185 \includes\class-dahu-order-search-settings.php:246
 msgid "Order search"
 msgstr "Recherche de commandes"
 
-#: includes/class-dahu-order-search-settings.php:301
+#: \includes\class-dahu-order-search-settings.php:314
 msgid "Return nothing when the \"Order ID\" filter is used with text that is not a number"
 msgstr "Ne rien renvoyer quand le filtre « N° de commande » est employé avec un texte qui n'est pas un nombre"
 
-#: dahu-order-search.php:127
+#: \dahu-order-search.php:127
 msgid "Settings"
 msgstr "Réglages"
 
-#: includes/class-dahu-order-search-sources.php:243
+#: \includes\class-dahu-order-search-sources.php:243
 msgid "Shipping address: %s"
 msgstr "Adresse de livraison : %s"
 
-#: includes/class-dahu-order-search-settings.php:289
+#: \includes\class-dahu-order-search-settings.php:302
 msgid "Shortest search term"
 msgstr "Terme de recherche le plus court"
 
-#: includes/class-dahu-order-search-settings.php:243 includes/class-dahu-order-search-settings.php:246
+#: \dahu-order-search.php:214
+msgid "Shortest term"
+msgstr "Terme le plus court"
+
+#: \dahu-order-search.php:175
+msgid "Skip"
+msgstr "Passer"
+
+#: \includes\class-dahu-order-search-settings.php:256 \includes\class-dahu-order-search-settings.php:259
 msgid "Sources"
 msgstr "Sources"
 
-#: includes/class-dahu-order-search-settings.php:263
+#: \includes\class-dahu-order-search-settings.php:276
 msgid "To find the key a value is stored under, open an order and look at its custom fields."
 msgstr "Pour trouver la clé sous laquelle une valeur est stockée, ouvrez une commande et regardez ses champs personnalisés."
 
-#: includes/class-dahu-order-search-settings.php:297
+#: \includes\class-dahu-order-search-settings.php:310
 msgid "WooCommerce correction"
 msgstr "Correction WooCommerce"
 
-#: includes/class-dahu-order-search-settings.php:225
+#: \dahu-order-search.php:186
+msgid "Works whichever order storage the shop is on."
+msgstr "Fonctionne quel que soit le stockage de commandes de la boutique."
+
+#: \dahu-order-search.php:177
+msgid "You are not allowed to view this page."
+msgstr "Vous n’avez pas l’autorisation de voir cette page."
+
+#: \includes\class-dahu-order-search-settings.php:238
 msgid "You do not have permission to change these settings."
 msgstr "Vous n'avez pas l'autorisation de modifier ces réglages."
+
+#: \dahu-order-search.php:176
+msgid "of"
+msgstr "sur"
 

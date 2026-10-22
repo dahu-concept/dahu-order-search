@@ -154,10 +154,23 @@ class Dahu_Order_Search_Settings {
 			return;
 		}
 
+		// The family sheet first, and its own second: the plugin's own rules
+		// are written to sit on top of the shared components, so the order is
+		// a dependency and not a hope. One handle across the family -- the
+		// file is byte-identical everywhere, so whichever plugin loads it
+		// first serves all of them, and a shop with six of these installed
+		// downloads one copy.
+		wp_enqueue_style(
+			'dahu-ui',
+			DAHU_ORDER_SEARCH_URL . 'assets/css/dahu-ui.css',
+			array(),
+			DAHU_ORDER_SEARCH_VERSION
+		);
+
 		wp_enqueue_style(
 			'dahu-order-search-admin',
 			DAHU_ORDER_SEARCH_URL . 'assets/css/admin.css',
-			array(),
+			array( 'dahu-ui' ),
 			DAHU_ORDER_SEARCH_VERSION
 		);
 	}
@@ -228,16 +241,16 @@ class Dahu_Order_Search_Settings {
 		$settings = self::get();
 		$name     = self::OPTION;
 		?>
-		<div class="wrap">
-			<h1><?php esc_html_e( 'Order search', 'dahu-order-search' ); ?></h1>
-
-			<p class="dahu-order-search__intro">
-				<?php esc_html_e( 'Dahu Order Search adds sources to the search box above the order list. What it finds is added to WooCommerce\'s own results and ranked by how well it matches — it never replaces the search you already know.', 'dahu-order-search' ); ?>
-			</p>
+		<div class="wrap dahu-ui">
+			<div class="dahu-ui-head">
+				<h1 class="dahu-ui-head__title"><?php esc_html_e( 'Order search', 'dahu-order-search' ); ?></h1>
+				<p class="dahu-ui-head__sub"><?php esc_html_e( 'Finds an order by what the customer tells you on the telephone.', 'dahu-order-search' ); ?></p>
+			</div>
 
 			<form method="post" action="options.php">
 				<?php settings_fields( self::GROUP ); ?>
 
+				<div class="dahu-ui-card">
 				<table class="form-table" role="presentation">
 					<tr>
 						<th scope="row"><?php esc_html_e( 'Sources', 'dahu-order-search' ); ?></th>
@@ -306,8 +319,9 @@ class Dahu_Order_Search_Settings {
 						</td>
 					</tr>
 				</table>
+				</div>
 
-				<?php submit_button(); ?>
+				<?php submit_button( null, 'dahu-ui-btn dahu-ui-btn--go' ); ?>
 			</form>
 		</div>
 		<?php

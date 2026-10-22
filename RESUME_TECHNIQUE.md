@@ -81,8 +81,9 @@ résultat passe **avant** ceux de WooCommerce ; au-dessus, après.
 ## 3. Ce qui a été mesuré dans WooCommerce
 
 Trois comportements mesurés sur le banc (WordPress 7.1.3, WooCommerce 11.1.2),
-sur les deux magasins. Dossier complet :
-`claude/mesure-dahu-order-search-2026-10-09.md`.
+sur les deux magasins. Le dossier de mesure complet est conservé hors de ce
+dépôt, dans les notes de chantier de Dahu-Concept
+(`mesure-dahu-order-search-2026-10-09`).
 
 ### 3.1 `wc_get_orders( array( 's' => … ) )` ne sert à rien sur le magasin historique
 
