@@ -3,7 +3,7 @@
  * Plugin Name:       Dahu Order Search
  * Plugin URI:        https://dahu-concept.fr
  * Description:       Finds the orders WooCommerce's own search misses: a company name on a B2B order with no customer name, a phone number, an order note, a tracking or invoice number held in order meta, a value on an order line. Results are added to the native search, never substituted for it, and ranked by how well they match. Other plugins can register sources of their own.
- * Version:           1.0.0
+ * Version:           1.1.0
  * Author:            Hugo Vial-Jaime
  * Author URI:        mailto:contact@dahu-concept.fr
  * License:           MIT
@@ -19,7 +19,7 @@
 
 defined( 'ABSPATH' ) || exit;
 
-define( 'DAHU_ORDER_SEARCH_VERSION', '1.0.0' );
+define( 'DAHU_ORDER_SEARCH_VERSION', '1.1.0' );
 define( 'DAHU_ORDER_SEARCH_FILE', __FILE__ );
 define( 'DAHU_ORDER_SEARCH_PATH', plugin_dir_path( __FILE__ ) );
 define( 'DAHU_ORDER_SEARCH_URL', plugin_dir_url( __FILE__ ) );
@@ -164,10 +164,19 @@ add_action(
 				'file'       => DAHU_ORDER_SEARCH_FILE,
 				'version'    => DAHU_ORDER_SEARCH_VERSION,
 				'textdomain' => 'dahu-order-search',
+				'mark'       => array(
+					'view'  => '0 0 112 112',
+					'paths' => array(
+						'M12.0 48.0 a38.0 38.0 0 1 0 76.0 0 a38.0 38.0 0 1 0 -76.0 0',
+						'M78 76 L106 104',
+						'M34 36 L66 36 M34 50 L60 50',
+						'M34 64 L50 64',
+					),
+				),
 				/*
-				 * Les mots de l'accueil viennent d'ici : le fichier partagé est
-				 * recopié dans toute la famille et ne peut donc porter aucun
-				 * domaine de traduction.
+				 * The welcome screen's words come from here: the shared file is
+				 * copied byte for byte across the whole family, so it can carry
+				 * no text domain of its own.
 				 */
 				'strings'    => array(
 					'next'   => __( 'Next', 'dahu-order-search' ),

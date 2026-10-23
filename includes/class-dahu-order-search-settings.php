@@ -247,6 +247,17 @@ class Dahu_Order_Search_Settings {
 				<p class="dahu-ui-head__sub"><?php esc_html_e( 'Finds an order by what the customer tells you on the telephone.', 'dahu-order-search' ); ?></p>
 			</div>
 
+			<?php
+			/*
+			 * Not decoration. wp-admin/js/common.js MOVES every .notice to
+			 * just after .wp-header-end, and without that marker it falls
+			 * back to the page's first h1 or h2 — which on this screen is the
+			 * first card's title. A settings notice therefore landed in the
+			 * middle of a card, somewhere nobody designed.
+			 */
+			?>
+			<hr class="wp-header-end">
+
 			<form method="post" action="options.php">
 				<?php settings_fields( self::GROUP ); ?>
 

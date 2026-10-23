@@ -4,7 +4,7 @@ Tags: woocommerce, orders, search, admin, b2b
 Requires at least: 6.0
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 1.0.0
+Stable tag: 1.1.0
 License: MIT
 License URI: https://opensource.org/licenses/MIT
 
@@ -118,6 +118,15 @@ WooCommerce answers alone. Four characters by default.
 1. The settings screen: which sources run, and which meta keys they look at.
 
 == Changelog ==
+
+= 1.1.0 =
+* The activation screen now opens on the plugin's own mark rather than its initials, and the banner carries the same drawing as a watermark.
+
+= 1.0.2 =
+* The settings screen now carries WordPress's notice marker, so a settings notice appears under the page heading instead of inside the first card.
+
+= 1.0.1 =
+* Uninstall on multisite: the per-site loop no longer stops at the first hundred sites, so the settings and the welcome flags are removed from the whole network.
 
 = 1.0.0 =
 * First public release.
