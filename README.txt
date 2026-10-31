@@ -1,5 +1,5 @@
 === Dahu Order Search ===
-Contributors: hugovialjaime
+Contributors: dahuconcept
 Tags: woocommerce, orders, search, admin, b2b
 Requires at least: 6.0
 Tested up to: 7.1
