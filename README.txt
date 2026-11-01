@@ -1,6 +1,6 @@
 === Dahu Order Search ===
 Contributors: dahuconcept
-Tags: woocommerce, orders, search, admin, b2b
+Tags: order search, company name, order meta, tracking number, woocommerce
 Requires at least: 6.0
 Tested up to: 7.1
 Requires PHP: 7.4
