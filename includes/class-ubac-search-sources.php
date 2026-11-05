@@ -101,6 +101,36 @@ class Ubac_Search_Sources {
 		 */
 		$sources = (array) apply_filters( 'ubac_search_sources', $sources );
 
+		/**
+		 * Registers a source of order search results (previous name).
+		 *
+		 * A TRANSITION NAME, AND IT IS MEANT TO GO.
+		 *
+		 * This filter was called `dahu_order_search_sources` before the
+		 * plugin family was renamed. A paid add-on already installed out
+		 * there still hooks the old name, and an installed add-on cannot be
+		 * updated at the same moment as this plugin: dropping the name
+		 * outright meant that updating this plugin silently switched off the
+		 * add-on's own search source -- a shop looking an order up by its
+		 * parcel number would simply have stopped finding it, with nothing on
+		 * screen to say why.
+		 *
+		 * It runs after the current name so that a shop hooking both is not
+		 * surprised by the order, and it will be removed once the add-ons
+		 * that used it have shipped a version using `ubac_search_sources`.
+		 * Nothing in this plugin hooks it.
+		 *
+		 * @deprecated Use `ubac_search_sources` instead.
+		 *
+		 * @param array<string,array> $sources Keyed by source id.
+		 */
+		$sources = (array) apply_filters_deprecated(
+			'dahu_order_search_sources',
+			array( $sources ),
+			'1.1.0',
+			'ubac_search_sources'
+		);
+
 		return self::valid( $sources );
 	}
 

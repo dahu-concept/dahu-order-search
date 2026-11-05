@@ -120,6 +120,7 @@ WooCommerce answers alone. Four characters by default.
 == Changelog ==
 
 = 1.1.0 =
+* Add-ons that registered a search source under the filter's previous name keep working. The name changed when this plugin was renamed, and an add-on already installed cannot be updated at the same moment as the plugin: a shop looking an order up by a value only that add-on knew about would simply have stopped finding it, with nothing on screen to say why. The previous name is honoured for this release and will be removed in a later one.
 * The activation screen now opens on the plugin's own mark rather than its initials, and the banner carries the same drawing as a watermark.
 
 = 1.0.2 =
