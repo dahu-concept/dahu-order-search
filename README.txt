@@ -1,5 +1,5 @@
 === Ubac Search ===
-Contributors: ubacconcept
+Contributors: dahuconcept
 Tags: order search, company name, order meta, tracking number, woocommerce
 Requires at least: 6.0
 Tested up to: 7.1
