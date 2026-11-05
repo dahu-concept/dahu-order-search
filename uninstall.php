@@ -16,15 +16,15 @@ if ( is_multisite() ) {
 	// sites, and the options stay behind on every other one — an uninstall
 	// that did exactly what it was told and cleaned a fraction of the
 	// network, with nothing anywhere to say so.
-	$sites = get_sites(
+	$ubac_search_sites = get_sites(
 		array(
 			'fields' => 'ids',
 			'number' => 0,
 		)
 	);
 
-	foreach ( $sites as $site_id ) {
-		switch_to_blog( (int) $site_id );
+	foreach ( $ubac_search_sites as $ubac_search_site_id ) {
+		switch_to_blog( (int) $ubac_search_site_id );
 		delete_option( 'ubac_search_settings' );
 		delete_option( 'ubac_welcome_seen_ubac-search' );
 		delete_option( 'ubac_welcome_pending_ubac-search' );
