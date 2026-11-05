@@ -1,13 +1,13 @@
 <?php
 /**
- * Plugin Name:       Dahu Order Search
+ * Plugin Name:       Ubac Order Search
  * Description:       Finds the orders WooCommerce's own search misses: a company name on a B2B order with no customer name, a phone number, an order note, a tracking or invoice number held in order meta, a value on an order line. Results are added to the native search, never substituted for it, and ranked by how well they match. Other plugins can register sources of their own.
  * Version:           1.1.0
  * Author:            Hugo Vial-Jaime
  * Author URI:        https://dahu-concept.fr
  * License:           MIT
  * License URI:       https://opensource.org/licenses/MIT
- * Text Domain:       dahu-order-search
+ * Text Domain:       ubac-search
  * Domain Path:       /languages
  * Requires at least: 6.0
  * Requires PHP:      7.4
@@ -90,7 +90,7 @@ add_action(
 
 					printf(
 						'<div class="notice notice-warning"><p>%s</p></div>',
-						esc_html__( 'Dahu Order Search needs WooCommerce. It is doing nothing until WooCommerce is active.', 'dahu-order-search' )
+						esc_html__( 'Dahu Order Search needs WooCommerce. It is doing nothing until WooCommerce is active.', 'ubac-search' )
 					);
 				}
 			);
@@ -123,7 +123,7 @@ add_filter(
 			sprintf(
 				'<a href="%s">%s</a>',
 				esc_url( admin_url( 'admin.php?page=' . DAHU_ORDER_SEARCH_PAGE ) ),
-				esc_html__( 'Settings', 'dahu-order-search' )
+				esc_html__( 'Settings', 'ubac-search' )
 			)
 		);
 
@@ -158,8 +158,8 @@ add_action(
 		Dahu_Welcome::register(
 			array(
 				'slug'       => 'dahu-order-search',
-				'name'       => __( 'Order search', 'dahu-order-search' ),
-				'tagline'    => __( 'Finds an order by what the customer tells you on the telephone.', 'dahu-order-search' ),
+				'name'       => __( 'Order search', 'ubac-search' ),
+				'tagline'    => __( 'Finds an order by what the customer tells you on the telephone.', 'ubac-search' ),
 				'file'       => DAHU_ORDER_SEARCH_FILE,
 				'version'    => DAHU_ORDER_SEARCH_VERSION,
 				'textdomain' => 'dahu-order-search',
@@ -178,24 +178,24 @@ add_action(
 				 * no text domain of its own.
 				 */
 				'strings'    => array(
-					'next'   => __( 'Next', 'dahu-order-search' ),
-					'done'   => __( 'Done', 'dahu-order-search' ),
-					'skip'   => __( 'Skip', 'dahu-order-search' ),
-					'of'     => __( 'of', 'dahu-order-search' ),
-					'denied' => __( 'You are not allowed to view this page.', 'dahu-order-search' ),
+					'next'   => __( 'Next', 'ubac-search' ),
+					'done'   => __( 'Done', 'ubac-search' ),
+					'skip'   => __( 'Skip', 'ubac-search' ),
+					'of'     => __( 'of', 'ubac-search' ),
+					'denied' => __( 'You are not allowed to view this page.', 'ubac-search' ),
 				),
 				'points'     => array(
 				array(
-					'title' => __( 'Any detail', 'dahu-order-search' ),
-					'text'  => __( 'A surname, part of an address, a telephone number, a serial.', 'dahu-order-search' ),
+					'title' => __( 'Any detail', 'ubac-search' ),
+					'text'  => __( 'A surname, part of an address, a telephone number, a serial.', 'ubac-search' ),
 				),
 				array(
-					'title' => __( 'Both stores', 'dahu-order-search' ),
-					'text'  => __( 'Works whichever order storage the shop is on.', 'dahu-order-search' ),
+					'title' => __( 'Both stores', 'ubac-search' ),
+					'text'  => __( 'Works whichever order storage the shop is on.', 'ubac-search' ),
 				),
 				array(
-					'title' => __( 'Fast where it matters', 'dahu-order-search' ),
-					'text'  => __( 'Built for somebody with a customer waiting.', 'dahu-order-search' ),
+					'title' => __( 'Fast where it matters', 'ubac-search' ),
+					'text'  => __( 'Built for somebody with a customer waiting.', 'ubac-search' ),
 				),
 				),
 
@@ -209,18 +209,18 @@ add_action(
 				'tour'        => array(
 					array(
 						'selector' => '.dahu-ui-card',
-						'title'    => __( 'Added, never replaced', 'dahu-order-search' ),
-						'text'     => __( 'Extra sources add to the native search results.', 'dahu-order-search' ),
+						'title'    => __( 'Added, never replaced', 'ubac-search' ),
+						'text'     => __( 'Extra sources add to the native search results.', 'ubac-search' ),
 					),
 					array(
 						'selector' => '#dahu-order-search-order-meta',
-						'title'    => __( 'Add your own keys', 'dahu-order-search' ),
-						'text'     => __( 'One order meta key per line, such as a tracking number.', 'dahu-order-search' ),
+						'title'    => __( 'Add your own keys', 'ubac-search' ),
+						'text'     => __( 'One order meta key per line, such as a tracking number.', 'ubac-search' ),
 					),
 					array(
 						'selector' => '#dahu-order-search-min',
-						'title'    => __( 'Shortest term', 'dahu-order-search' ),
-						'text'     => __( 'Below this length, only the native search answers.', 'dahu-order-search' ),
+						'title'    => __( 'Shortest term', 'ubac-search' ),
+						'text'     => __( 'Below this length, only the native search answers.', 'ubac-search' ),
 					),
 				),
 			)

@@ -8,194 +8,194 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "PO-Revision-Date: 2026-10-24 10:16+0000\n"
-"X-Domain: dahu-order-search\n"
+"X-Domain: ubac-search\n"
 
-#: dahu-order-search.php:191
+#: ubac-search.php:191
 msgid "A surname, part of an address, a telephone number, a serial."
 msgstr ""
 
-#: dahu-order-search.php:218
+#: ubac-search.php:218
 msgid "Add your own keys"
 msgstr ""
 
-#: dahu-order-search.php:213
+#: ubac-search.php:213
 msgid "Added, never replaced"
 msgstr ""
 
-#: dahu-order-search.php:190
+#: ubac-search.php:190
 msgid "Any detail"
 msgstr ""
 
-#: dahu-order-search.php:224
+#: ubac-search.php:224
 msgid "Below this length, only the native search answers."
 msgstr ""
 
-#: includes/class-dahu-order-search-settings.php:316
+#: includes/class-ubac-search-settings.php:316
 msgid "Below this many characters the extra sources do not run, and the native search is left to answer on its own."
 msgstr ""
 
-#: includes/class-dahu-order-search-sources.php:245
+#: includes/class-ubac-search-sources.php:245
 msgid "Billing address: %s"
 msgstr ""
 
-#: dahu-order-search.php:194
+#: ubac-search.php:194
 msgid "Both stores"
 msgstr ""
 
-#: dahu-order-search.php:199
+#: ubac-search.php:199
 msgid "Built for somebody with a customer waiting."
 msgstr ""
 
-#: includes/class-dahu-order-search-sources.php:74
+#: includes/class-ubac-search-sources.php:74
 msgid "Customer — company, phone, email, name, street, town, postcode, on both the billing and the shipping address"
 msgstr ""
 
-#: dahu-order-search.php:94
+#: ubac-search.php:94
 msgid "Dahu Order Search needs WooCommerce. It is doing nothing until WooCommerce is active."
 msgstr ""
 
-#: dahu-order-search.php:183
+#: ubac-search.php:183
 msgid "Done"
 msgstr ""
 
-#: dahu-order-search.php:214
+#: ubac-search.php:214
 msgid "Extra sources add to the native search results."
 msgstr ""
 
-#: dahu-order-search.php:198
+#: ubac-search.php:198
 msgid "Fast where it matters"
 msgstr ""
 
-#: dahu-order-search.php:163 includes/class-dahu-order-search-settings.php:247
+#: ubac-search.php:163 includes/class-ubac-search-settings.php:247
 msgid "Finds an order by what the customer tells you on the telephone."
 msgstr ""
 
-#: includes/class-dahu-order-search-settings.php:328
+#: includes/class-ubac-search-settings.php:328
 msgid "Left alone, WooCommerce shows every order in the shop instead, which reads as a search that stopped working. Switch this off to get WooCommerce's own behaviour back."
 msgstr ""
 
-#: includes/class-dahu-order-search-sources.php:638
+#: includes/class-ubac-search-sources.php:638
 msgid "Linked from order #%d"
 msgstr ""
 
-#: includes/class-dahu-order-search-settings.php:303
+#: includes/class-ubac-search-settings.php:303
 msgid "Linked order meta keys"
 msgstr ""
 
-#: includes/class-dahu-order-search-settings.php:37
+#: includes/class-ubac-search-settings.php:37
 msgid "Linked orders — also show orders whose meta points at a found order, and the orders a found order points at (returns, replacements, renewals)"
 msgstr ""
 
-#: includes/class-dahu-order-search-sources.php:610
+#: includes/class-ubac-search-sources.php:610
 msgid "Linked to order #%d"
 msgstr ""
 
-#: dahu-order-search.php:182
+#: ubac-search.php:182
 msgid "Next"
 msgstr ""
 
 #. translators: 1: date, 2: an excerpt of the note. */
-#: includes/class-dahu-order-search-sources.php:542
+#: includes/class-ubac-search-sources.php:542
 msgid "Note of %1$s: %2$s"
 msgstr ""
 
-#: includes/class-dahu-order-search-settings.php:297
+#: includes/class-ubac-search-settings.php:297
 msgid "One key per line. A single asterisk means every visible line meta — the internal ones are always skipped, because they hold bare numbers that would make any number match half the shop."
 msgstr ""
 
-#: includes/class-dahu-order-search-settings.php:286
+#: includes/class-ubac-search-settings.php:286
 msgid "One key per line. A tracking number, an invoice number, a reference from another system — anything stored on the order that somebody might search for."
 msgstr ""
 
-#: includes/class-dahu-order-search-settings.php:307
+#: includes/class-ubac-search-settings.php:307
 msgid "One key per line. Keys whose value is another order's number. Both directions are followed, because only one of them is ever stored."
 msgstr ""
 
-#: dahu-order-search.php:219
+#: ubac-search.php:219
 msgid "One order meta key per line, such as a tracking number."
 msgstr ""
 
-#: includes/class-dahu-order-search-sources.php:499
+#: includes/class-ubac-search-sources.php:499
 msgid "Order line %1$s: %2$s"
 msgstr ""
 
-#: includes/class-dahu-order-search-settings.php:293
+#: includes/class-ubac-search-settings.php:293
 msgid "Order line meta keys"
 msgstr ""
 
-#: includes/class-dahu-order-search-sources.php:84
+#: includes/class-ubac-search-sources.php:84
 msgid "Order line meta — the keys listed below (a serial number typed on a line, an engraving, a size)"
 msgstr ""
 
-#: includes/class-dahu-order-search-sources.php:439
+#: includes/class-ubac-search-sources.php:439
 msgid "Order meta %1$s: %2$s"
 msgstr ""
 
-#: includes/class-dahu-order-search-settings.php:282
+#: includes/class-ubac-search-settings.php:282
 msgid "Order meta keys"
 msgstr ""
 
-#: includes/class-dahu-order-search-sources.php:79
+#: includes/class-ubac-search-sources.php:79
 msgid "Order meta — the keys listed below (tracking number, invoice number, external reference…)"
 msgstr ""
 
-#: includes/class-dahu-order-search-sources.php:89
+#: includes/class-ubac-search-sources.php:89
 msgid "Order notes"
 msgstr ""
 
-#: dahu-order-search.php:162 includes/class-dahu-order-search-settings.php:184 includes/class-dahu-order-search-settings.php:185 includes/class-dahu-order-search-settings.php:246
+#: ubac-search.php:162 includes/class-ubac-search-settings.php:184 includes/class-ubac-search-settings.php:185 includes/class-ubac-search-settings.php:246
 msgid "Order search"
 msgstr ""
 
-#: includes/class-dahu-order-search-settings.php:325
+#: includes/class-ubac-search-settings.php:325
 msgid "Return nothing when the \"Order ID\" filter is used with text that is not a number"
 msgstr ""
 
-#: dahu-order-search.php:127
+#: ubac-search.php:127
 msgid "Settings"
 msgstr ""
 
-#: includes/class-dahu-order-search-sources.php:243
+#: includes/class-ubac-search-sources.php:243
 msgid "Shipping address: %s"
 msgstr ""
 
-#: includes/class-dahu-order-search-settings.php:313
+#: includes/class-ubac-search-settings.php:313
 msgid "Shortest search term"
 msgstr ""
 
-#: dahu-order-search.php:223
+#: ubac-search.php:223
 msgid "Shortest term"
 msgstr ""
 
-#: dahu-order-search.php:184
+#: ubac-search.php:184
 msgid "Skip"
 msgstr ""
 
-#: includes/class-dahu-order-search-settings.php:267 includes/class-dahu-order-search-settings.php:270
+#: includes/class-ubac-search-settings.php:267 includes/class-ubac-search-settings.php:270
 msgid "Sources"
 msgstr ""
 
-#: includes/class-dahu-order-search-settings.php:287
+#: includes/class-ubac-search-settings.php:287
 msgid "To find the key a value is stored under, open an order and look at its custom fields."
 msgstr ""
 
-#: includes/class-dahu-order-search-settings.php:321
+#: includes/class-ubac-search-settings.php:321
 msgid "WooCommerce correction"
 msgstr ""
 
-#: dahu-order-search.php:195
+#: ubac-search.php:195
 msgid "Works whichever order storage the shop is on."
 msgstr ""
 
-#: dahu-order-search.php:186
+#: ubac-search.php:186
 msgid "You are not allowed to view this page."
 msgstr ""
 
-#: includes/class-dahu-order-search-settings.php:238
+#: includes/class-ubac-search-settings.php:238
 msgid "You do not have permission to change these settings."
 msgstr ""
 
-#: dahu-order-search.php:185
+#: ubac-search.php:185
 msgid "of"
 msgstr ""
 

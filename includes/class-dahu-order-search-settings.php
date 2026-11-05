@@ -34,7 +34,7 @@ class Dahu_Order_Search_Settings {
 			$toggles[ $id ] = $source['label'];
 		}
 
-		$toggles['linked_orders'] = __( 'Linked orders — also show orders whose meta points at a found order, and the orders a found order points at (returns, replacements, renewals)', 'dahu-order-search' );
+		$toggles['linked_orders'] = __( 'Linked orders — also show orders whose meta points at a found order, and the orders a found order points at (returns, replacements, renewals)', 'ubac-search' );
 
 		return $toggles;
 	}
@@ -181,8 +181,8 @@ class Dahu_Order_Search_Settings {
 	public static function register_page() {
 		add_submenu_page(
 			'woocommerce',
-			__( 'Order search', 'dahu-order-search' ),
-			__( 'Order search', 'dahu-order-search' ),
+			__( 'Order search', 'ubac-search' ),
+			__( 'Order search', 'ubac-search' ),
 			self::CAPABILITY,
 			DAHU_ORDER_SEARCH_PAGE,
 			array( __CLASS__, 'render_page' )
@@ -235,7 +235,7 @@ class Dahu_Order_Search_Settings {
 	 */
 	public static function render_page() {
 		if ( ! current_user_can( self::CAPABILITY ) ) {
-			wp_die( esc_html__( 'You do not have permission to change these settings.', 'dahu-order-search' ) );
+			wp_die( esc_html__( 'You do not have permission to change these settings.', 'ubac-search' ) );
 		}
 
 		$settings = self::get();
@@ -243,8 +243,8 @@ class Dahu_Order_Search_Settings {
 		?>
 		<div class="wrap dahu-ui">
 			<div class="dahu-ui-head">
-				<h1 class="dahu-ui-head__title"><?php esc_html_e( 'Order search', 'dahu-order-search' ); ?></h1>
-				<p class="dahu-ui-head__sub"><?php esc_html_e( 'Finds an order by what the customer tells you on the telephone.', 'dahu-order-search' ); ?></p>
+				<h1 class="dahu-ui-head__title"><?php esc_html_e( 'Order search', 'ubac-search' ); ?></h1>
+				<p class="dahu-ui-head__sub"><?php esc_html_e( 'Finds an order by what the customer tells you on the telephone.', 'ubac-search' ); ?></p>
 			</div>
 
 			<?php
@@ -264,10 +264,10 @@ class Dahu_Order_Search_Settings {
 				<div class="dahu-ui-card">
 				<table class="form-table" role="presentation">
 					<tr>
-						<th scope="row"><?php esc_html_e( 'Sources', 'dahu-order-search' ); ?></th>
+						<th scope="row"><?php esc_html_e( 'Sources', 'ubac-search' ); ?></th>
 						<td>
 							<fieldset>
-								<legend class="screen-reader-text"><?php esc_html_e( 'Sources', 'dahu-order-search' ); ?></legend>
+								<legend class="screen-reader-text"><?php esc_html_e( 'Sources', 'ubac-search' ); ?></legend>
 								<?php foreach ( self::toggles() as $key => $label ) : ?>
 									<label class="dahu-order-search__check">
 										<input type="checkbox" name="<?php echo esc_attr( $name ); ?>[sources][<?php echo esc_attr( $key ); ?>]" value="1" <?php checked( ! empty( $settings['sources'][ $key ] ) ); ?> />
@@ -279,53 +279,53 @@ class Dahu_Order_Search_Settings {
 					</tr>
 
 					<tr>
-						<th scope="row"><label for="dahu-order-search-order-meta"><?php esc_html_e( 'Order meta keys', 'dahu-order-search' ); ?></label></th>
+						<th scope="row"><label for="dahu-order-search-order-meta"><?php esc_html_e( 'Order meta keys', 'ubac-search' ); ?></label></th>
 						<td>
 							<textarea id="dahu-order-search-order-meta" name="<?php echo esc_attr( $name ); ?>[order_meta_keys]" rows="4" class="large-text code"><?php echo esc_textarea( $settings['order_meta_keys'] ); ?></textarea>
 							<p class="description">
-								<?php esc_html_e( 'One key per line. A tracking number, an invoice number, a reference from another system — anything stored on the order that somebody might search for.', 'dahu-order-search' ); ?>
-								<?php esc_html_e( 'To find the key a value is stored under, open an order and look at its custom fields.', 'dahu-order-search' ); ?>
+								<?php esc_html_e( 'One key per line. A tracking number, an invoice number, a reference from another system — anything stored on the order that somebody might search for.', 'ubac-search' ); ?>
+								<?php esc_html_e( 'To find the key a value is stored under, open an order and look at its custom fields.', 'ubac-search' ); ?>
 							</p>
 						</td>
 					</tr>
 
 					<tr>
-						<th scope="row"><label for="dahu-order-search-item-meta"><?php esc_html_e( 'Order line meta keys', 'dahu-order-search' ); ?></label></th>
+						<th scope="row"><label for="dahu-order-search-item-meta"><?php esc_html_e( 'Order line meta keys', 'ubac-search' ); ?></label></th>
 						<td>
 							<textarea id="dahu-order-search-item-meta" name="<?php echo esc_attr( $name ); ?>[item_meta_keys]" rows="3" class="large-text code"><?php echo esc_textarea( $settings['item_meta_keys'] ); ?></textarea>
 							<p class="description">
-								<?php esc_html_e( 'One key per line. A single asterisk means every visible line meta — the internal ones are always skipped, because they hold bare numbers that would make any number match half the shop.', 'dahu-order-search' ); ?>
+								<?php esc_html_e( 'One key per line. A single asterisk means every visible line meta — the internal ones are always skipped, because they hold bare numbers that would make any number match half the shop.', 'ubac-search' ); ?>
 							</p>
 						</td>
 					</tr>
 
 					<tr>
-						<th scope="row"><label for="dahu-order-search-link-meta"><?php esc_html_e( 'Linked order meta keys', 'dahu-order-search' ); ?></label></th>
+						<th scope="row"><label for="dahu-order-search-link-meta"><?php esc_html_e( 'Linked order meta keys', 'ubac-search' ); ?></label></th>
 						<td>
 							<textarea id="dahu-order-search-link-meta" name="<?php echo esc_attr( $name ); ?>[link_meta_keys]" rows="3" class="large-text code"><?php echo esc_textarea( $settings['link_meta_keys'] ); ?></textarea>
 							<p class="description">
-								<?php esc_html_e( 'One key per line. Keys whose value is another order\'s number. Both directions are followed, because only one of them is ever stored.', 'dahu-order-search' ); ?>
+								<?php esc_html_e( 'One key per line. Keys whose value is another order\'s number. Both directions are followed, because only one of them is ever stored.', 'ubac-search' ); ?>
 							</p>
 						</td>
 					</tr>
 
 					<tr>
-						<th scope="row"><label for="dahu-order-search-min"><?php esc_html_e( 'Shortest search term', 'dahu-order-search' ); ?></label></th>
+						<th scope="row"><label for="dahu-order-search-min"><?php esc_html_e( 'Shortest search term', 'ubac-search' ); ?></label></th>
 						<td>
 							<input id="dahu-order-search-min" type="number" min="2" max="20" name="<?php echo esc_attr( $name ); ?>[min_length]" value="<?php echo esc_attr( (string) $settings['min_length'] ); ?>" class="small-text" />
-							<p class="description"><?php esc_html_e( 'Below this many characters the extra sources do not run, and the native search is left to answer on its own.', 'dahu-order-search' ); ?></p>
+							<p class="description"><?php esc_html_e( 'Below this many characters the extra sources do not run, and the native search is left to answer on its own.', 'ubac-search' ); ?></p>
 						</td>
 					</tr>
 
 					<tr>
-						<th scope="row"><?php esc_html_e( 'WooCommerce correction', 'dahu-order-search' ); ?></th>
+						<th scope="row"><?php esc_html_e( 'WooCommerce correction', 'ubac-search' ); ?></th>
 						<td>
 							<label class="dahu-order-search__check">
 								<input type="checkbox" name="<?php echo esc_attr( $name ); ?>[fix_order_id_filter]" value="1" <?php checked( ! empty( $settings['fix_order_id_filter'] ) ); ?> />
-								<?php esc_html_e( 'Return nothing when the "Order ID" filter is used with text that is not a number', 'dahu-order-search' ); ?>
+								<?php esc_html_e( 'Return nothing when the "Order ID" filter is used with text that is not a number', 'ubac-search' ); ?>
 							</label>
 							<p class="description dahu-order-search__caution">
-								<?php esc_html_e( 'Left alone, WooCommerce shows every order in the shop instead, which reads as a search that stopped working. Switch this off to get WooCommerce\'s own behaviour back.', 'dahu-order-search' ); ?>
+								<?php esc_html_e( 'Left alone, WooCommerce shows every order in the shop instead, which reads as a search that stopped working. Switch this off to get WooCommerce\'s own behaviour back.', 'ubac-search' ); ?>
 							</p>
 						</td>
 					</tr>
