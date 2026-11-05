@@ -1,4 +1,4 @@
-# Dahu Order Search
+# Ubac Order Search
 
 Finds the orders WooCommerce's own search misses, and adds them to the results you already get.
 
@@ -70,7 +70,7 @@ A source is a callback that takes the search term and returns the orders it foun
 
 ```php
 add_filter(
-	'dahu_order_search_sources',
+	'ubac_search_sources',
 	function ( array $sources ) {
 		$sources['warranty'] = array(
 			'label'    => 'Warranty claim number',
@@ -128,9 +128,9 @@ A source whose callback does not exist is dropped too, with everything else left
 
 | Filter | What it does |
 |---|---|
-| `dahu_order_search_sources` | Register, remove or relabel sources. |
-| `dahu_order_search_max_ids` | The most orders one source may contribute to a single search. Default 1000. It holds for registered sources too, not only the built-in ones. |
-| `dahu_order_search_order_post_types` | On the legacy store, the post types treated as orders. Default `shop_order`. |
+| `ubac_search_sources` | Register, remove or relabel sources. |
+| `ubac_search_max_ids` | The most orders one source may contribute to a single search. Default 1000. It holds for registered sources too, not only the built-in ones. |
+| `ubac_search_order_post_types` | On the legacy store, the post types treated as orders. Default `shop_order`. |
 
 ---
 

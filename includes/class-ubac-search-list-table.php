@@ -2,7 +2,7 @@
 /**
  * Where the plugin meets the order list, on both order stores.
  *
- * @package DahuOrderSearch
+ * @package UbacSearch
  */
 
 defined( 'ABSPATH' ) || exit;
@@ -27,10 +27,10 @@ defined( 'ABSPATH' ) || exit;
  *   which hands over the ids WooCommerce has already found. Nothing has to
  *   be re-run there, which is why that path is three lines.
  */
-class Dahu_Order_Search_List_Table {
+class Ubac_Search_List_Table {
 
 	/** Prefix for the dropdown values a source contributes. */
-	const FILTER_PREFIX = 'dahu_src_';
+	const FILTER_PREFIX = 'ubac_src_';
 
 	/**
 	 * True while the native search is being resolved.
@@ -76,8 +76,8 @@ class Dahu_Order_Search_List_Table {
 	public static function search_filters( $options ) {
 		$options = (array) $options;
 
-		foreach ( Dahu_Order_Search_Sources::registered() as $id => $source ) {
-			if ( null === $source['filter'] || ! Dahu_Order_Search_Settings::source_enabled( $id ) ) {
+		foreach ( Ubac_Search_Sources::registered() as $id => $source ) {
+			if ( null === $source['filter'] || ! Ubac_Search_Settings::source_enabled( $id ) ) {
 				continue;
 			}
 
@@ -101,14 +101,14 @@ class Dahu_Order_Search_List_Table {
 		}
 
 		$id      = substr( $filter, strlen( self::FILTER_PREFIX ) );
-		$sources = Dahu_Order_Search_Sources::registered();
+		$sources = Ubac_Search_Sources::registered();
 
 		// Registered **and** ticked. The dropdown stops offering an unticked
 		// source, but WooCommerce remembers the chosen filter per user and a
 		// shared link carries it — so without this check a source the shop
 		// switched off goes on answering, exclusively, from a URL nobody can
 		// see and nothing can reach on purpose.
-		if ( ! isset( $sources[ $id ] ) || ! Dahu_Order_Search_Settings::source_enabled( $id ) ) {
+		if ( ! isset( $sources[ $id ] ) || ! Ubac_Search_Settings::source_enabled( $id ) ) {
 			return '';
 		}
 
@@ -144,11 +144,11 @@ class Dahu_Order_Search_List_Table {
 		// its own — and the person would read "no orders found" as an
 		// answer about their shop rather than about a three-letter term.
 		if ( '' !== $source ) {
-			if ( ! Dahu_Order_Search_Sources::term_is_long_enough( $term ) ) {
+			if ( ! Ubac_Search_Sources::term_is_long_enough( $term ) ) {
 				return $args;
 			}
 
-			return self::replace_with( $args, Dahu_Order_Search_Sources::collect( $term, $source ), $args, false );
+			return self::replace_with( $args, Ubac_Search_Sources::collect( $term, $source ), $args, false );
 		}
 
 		// The "Order ID" filter with something that is not an order number.
@@ -165,11 +165,11 @@ class Dahu_Order_Search_List_Table {
 		// WooCommerce itself applies: "15080.0" and "+15080" resolve to a
 		// real order there, and used to resolve to nothing here.
 		if ( 'order_id' === $filter && ! is_numeric( ltrim( $term, '#' ) ) ) {
-			if ( ! Dahu_Order_Search_Settings::fixes_order_id_filter() ) {
+			if ( ! Ubac_Search_Settings::fixes_order_id_filter() ) {
 				return $args;
 			}
 
-			return self::replace_with( $args, Dahu_Order_Search_Sources::collect( $term ), $args, false );
+			return self::replace_with( $args, Ubac_Search_Sources::collect( $term ), $args, false );
 		}
 
 		// The remaining WooCommerce filters search one field each and do it
@@ -184,11 +184,11 @@ class Dahu_Order_Search_List_Table {
 			// The addresses source alone — and only if the shop left it on.
 			// Running a source somebody unticked, because of which filter
 			// they chose, is the plugin overruling a setting it offered.
-			$found = Dahu_Order_Search_Settings::source_enabled( 'addresses' ) && Dahu_Order_Search_Sources::term_is_long_enough( $term )
-				? Dahu_Order_Search_Sources::collect( $term, 'addresses' )
+			$found = Ubac_Search_Settings::source_enabled( 'addresses' ) && Ubac_Search_Sources::term_is_long_enough( $term )
+				? Ubac_Search_Sources::collect( $term, 'addresses' )
 				: array();
 		} else {
-			$found = Dahu_Order_Search_Sources::collect( $term );
+			$found = Ubac_Search_Sources::collect( $term );
 		}
 
 		if ( ! $found ) {
@@ -212,7 +212,7 @@ class Dahu_Order_Search_List_Table {
 	private static function replace_with( array $args, array $found, array $original, $with_native ) {
 		$term   = isset( $original['s'] ) ? trim( (string) $original['s'] ) : '';
 		$native = $with_native ? self::native_ids( $original ) : array();
-		$ids    = Dahu_Order_Search_Results::order_ids( $term, $native, $found );
+		$ids    = Ubac_Search_Results::order_ids( $term, $native, $found );
 
 		unset( $args['s'], $args['search'], $args['search_filter'] );
 
@@ -260,7 +260,7 @@ class Dahu_Order_Search_List_Table {
 	 * @return int[]
 	 */
 	private static function native_ids( array $args ) {
-		if ( Dahu_Order_Search_Sources::hpos_enabled() ) {
+		if ( Ubac_Search_Sources::hpos_enabled() ) {
 			$native = $args;
 
 			$native['limit']    = -1;
@@ -303,13 +303,13 @@ class Dahu_Order_Search_List_Table {
 			return $order_ids;
 		}
 
-		$found = Dahu_Order_Search_Sources::collect( (string) $term );
+		$found = Ubac_Search_Sources::collect( (string) $term );
 
 		if ( ! $found ) {
 			return $order_ids;
 		}
 
-		return Dahu_Order_Search_Results::order_ids( (string) $term, (array) $order_ids, $found );
+		return Ubac_Search_Results::order_ids( (string) $term, (array) $order_ids, $found );
 	}
 
 	/**
@@ -367,7 +367,7 @@ class Dahu_Order_Search_List_Table {
 		// not a bug to work around. It is written in §9 as something to
 		// watch on a real shop.
 		$sortable = apply_filters(
-			'dahu_order_search_sortable_columns',
+			'ubac_search_sortable_columns',
 			array( 'order_number', 'ID', 'id', 'date', 'date_created', 'order_date', 'order_total', 'total', 'wc_actions' )
 		);
 

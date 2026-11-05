@@ -2,7 +2,7 @@
 # This file is distributed under the MIT licence.
 msgid ""
 msgstr ""
-"Project-Id-Version: Dahu Order Search\n"
+"Project-Id-Version: Ubac Order Search\n"
 "Report-Msgid-Bugs-To: https://dahu-concept.fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -51,7 +51,7 @@ msgid "Customer — company, phone, email, name, street, town, postcode, on both
 msgstr ""
 
 #: ubac-search.php:94
-msgid "Dahu Order Search needs WooCommerce. It is doing nothing until WooCommerce is active."
+msgid "Ubac Order Search needs WooCommerce. It is doing nothing until WooCommerce is active."
 msgstr ""
 
 #: ubac-search.php:183

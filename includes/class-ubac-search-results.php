@@ -2,7 +2,7 @@
 /**
  * The result map, and the rank scale every source ranks against.
  *
- * @package DahuOrderSearch
+ * @package UbacSearch
  */
 
 defined( 'ABSPATH' ) || exit;
@@ -15,7 +15,7 @@ defined( 'ABSPATH' ) || exit;
  * source looks for — which is the point: the same merge serves the five
  * built-in sources and any a shop registers of its own.
  */
-class Dahu_Order_Search_Results {
+class Ubac_Search_Results {
 
 	/*
 	 * The rank scale. Lower is more relevant.

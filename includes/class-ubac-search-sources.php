@@ -3,7 +3,7 @@
  * Where the extra results come from: four built-in sources, one expansion,
  * and the registry a shop adds its own to.
  *
- * @package DahuOrderSearch
+ * @package UbacSearch
  */
 
 defined( 'ABSPATH' ) || exit;
@@ -11,7 +11,7 @@ defined( 'ABSPATH' ) || exit;
 /**
  * Every query here is a prepared SELECT. Nothing in this class writes.
  */
-class Dahu_Order_Search_Sources {
+class Ubac_Search_Sources {
 
 	/**
 	 * Most orders one source may contribute to a single search.
@@ -57,7 +57,7 @@ class Dahu_Order_Search_Sources {
 	 * 'rank' => int, 'filter' => string|null )`.
 	 *
 	 * The callback takes the search term and returns the orders it found, in
-	 * any of the three shapes `Dahu_Order_Search_Results::normalise()`
+	 * any of the three shapes `Ubac_Search_Results::normalise()`
 	 * accepts — the simplest being `array( 123 => 'why it matched' )`.
 	 *
 	 * `filter`, when set, adds an entry to the search dropdown above the
@@ -73,22 +73,22 @@ class Dahu_Order_Search_Sources {
 			'addresses'  => array(
 				'label'    => __( 'Customer — company, phone, email, name, street, town, postcode, on both the billing and the shipping address', 'ubac-search' ),
 				'callback' => array( __CLASS__, 'addresses' ),
-				'rank'     => Dahu_Order_Search_Results::RANK_ADDRESS,
+				'rank'     => Ubac_Search_Results::RANK_ADDRESS,
 			),
 			'order_meta' => array(
 				'label'    => __( 'Order meta — the keys listed below (tracking number, invoice number, external reference…)', 'ubac-search' ),
 				'callback' => array( __CLASS__, 'order_meta' ),
-				'rank'     => Dahu_Order_Search_Results::RANK_META,
+				'rank'     => Ubac_Search_Results::RANK_META,
 			),
 			'item_meta'  => array(
 				'label'    => __( 'Order line meta — the keys listed below (a serial number typed on a line, an engraving, a size)', 'ubac-search' ),
 				'callback' => array( __CLASS__, 'item_meta' ),
-				'rank'     => Dahu_Order_Search_Results::RANK_META,
+				'rank'     => Ubac_Search_Results::RANK_META,
 			),
 			'notes'      => array(
 				'label'    => __( 'Order notes', 'ubac-search' ),
 				'callback' => array( __CLASS__, 'notes' ),
-				'rank'     => Dahu_Order_Search_Results::RANK_NOTE,
+				'rank'     => Ubac_Search_Results::RANK_NOTE,
 			),
 		);
 
@@ -99,7 +99,7 @@ class Dahu_Order_Search_Sources {
 		 *
 		 * @param array<string,array> $sources Keyed by source id.
 		 */
-		$sources = (array) apply_filters( 'dahu_order_search_sources', $sources );
+		$sources = (array) apply_filters( 'ubac_search_sources', $sources );
 
 		return self::valid( $sources );
 	}
@@ -131,7 +131,7 @@ class Dahu_Order_Search_Sources {
 			$clean[ $id ] = array(
 				'label'    => isset( $source['label'] ) && is_string( $source['label'] ) ? $source['label'] : $id,
 				'callback' => $source['callback'],
-				'rank'     => isset( $source['rank'] ) ? (int) $source['rank'] : Dahu_Order_Search_Results::RANK_META,
+				'rank'     => isset( $source['rank'] ) ? (int) $source['rank'] : Ubac_Search_Results::RANK_META,
 				'filter'   => isset( $source['filter'] ) && is_string( $source['filter'] ) && '' !== $source['filter'] ? $source['filter'] : null,
 			);
 		}
@@ -152,7 +152,7 @@ class Dahu_Order_Search_Sources {
 	public static function term_is_long_enough( $term ) {
 		$term = trim( (string) $term );
 
-		return '' !== $term && mb_strlen( $term ) >= Dahu_Order_Search_Settings::min_length();
+		return '' !== $term && mb_strlen( $term ) >= Ubac_Search_Settings::min_length();
 	}
 
 	/**
@@ -179,12 +179,12 @@ class Dahu_Order_Search_Sources {
 				if ( $id !== $only ) {
 					continue;
 				}
-			} elseif ( ! Dahu_Order_Search_Settings::source_enabled( $id ) ) {
+			} elseif ( ! Ubac_Search_Settings::source_enabled( $id ) ) {
 				continue;
 			}
 
 			$returned = call_user_func( $source['callback'], $term );
-			$map      = Dahu_Order_Search_Results::normalise( $returned, $source['rank'], $source['label'] );
+			$map      = Ubac_Search_Results::normalise( $returned, $source['rank'], $source['label'] );
 
 			// The ceiling is "most orders ONE source may contribute", so it
 			// has to hold for a registered source too. A third-party source
@@ -197,14 +197,14 @@ class Dahu_Order_Search_Sources {
 				$map                    = array_slice( $map, 0, self::max_ids(), true );
 			}
 
-			Dahu_Order_Search_Results::merge( $found, $map );
+			Ubac_Search_Results::merge( $found, $map );
 		}
 
-		if ( $found && Dahu_Order_Search_Settings::source_enabled( 'linked_orders' ) ) {
-			Dahu_Order_Search_Results::merge( $found, self::linked_orders( array_keys( $found ) ) );
+		if ( $found && Ubac_Search_Settings::source_enabled( 'linked_orders' ) ) {
+			Ubac_Search_Results::merge( $found, self::linked_orders( array_keys( $found ) ) );
 		}
 
-		return Dahu_Order_Search_Results::sort( $found );
+		return Ubac_Search_Results::sort( $found );
 	}
 
 	/* ---------------------------------------------------------------------
@@ -235,7 +235,7 @@ class Dahu_Order_Search_Sources {
 
 			$exact = self::is_exact_name( $term, $row['first_name'], $row['last_name'], $row['company'] );
 
-			Dahu_Order_Search_Results::add(
+			Ubac_Search_Results::add(
 				$found,
 				(int) $row['order_id'],
 				'shipping' === $row['address_type']
@@ -243,7 +243,7 @@ class Dahu_Order_Search_Sources {
 					? sprintf( __( 'Shipping address: %s', 'ubac-search' ), $who )
 					/* translators: %s: customer or company name. */
 					: sprintf( __( 'Billing address: %s', 'ubac-search' ), $who ),
-				$exact ? Dahu_Order_Search_Results::RANK_EXACT : Dahu_Order_Search_Results::RANK_ADDRESS
+				$exact ? Ubac_Search_Results::RANK_EXACT : Ubac_Search_Results::RANK_ADDRESS
 			);
 		}
 
@@ -424,7 +424,7 @@ class Dahu_Order_Search_Sources {
 	public static function order_meta( $term ) {
 		global $wpdb;
 
-		$keys  = Dahu_Order_Search_Settings::lines( 'order_meta_keys' );
+		$keys  = Ubac_Search_Settings::lines( 'order_meta_keys' );
 		$found = array();
 
 		if ( ! $keys ) {
@@ -432,12 +432,12 @@ class Dahu_Order_Search_Sources {
 		}
 
 		foreach ( self::meta_rows( $keys, '%' . $wpdb->esc_like( $term ) . '%', self::max_ids(), 'order_meta' ) as $row ) {
-			Dahu_Order_Search_Results::add(
+			Ubac_Search_Results::add(
 				$found,
 				(int) $row['order_id'],
 				/* translators: 1: meta key, 2: the matching value. */
 				sprintf( __( 'Order meta %1$s: %2$s', 'ubac-search' ), $row['meta_key'], self::excerpt( $row['meta_value'], $term ) ),
-				Dahu_Order_Search_Results::RANK_META
+				Ubac_Search_Results::RANK_META
 			);
 		}
 
@@ -453,7 +453,7 @@ class Dahu_Order_Search_Sources {
 	public static function item_meta( $term ) {
 		global $wpdb;
 
-		$keys = Dahu_Order_Search_Settings::lines( 'item_meta_keys' );
+		$keys = Ubac_Search_Settings::lines( 'item_meta_keys' );
 
 		if ( ! $keys ) {
 			return array();
@@ -492,12 +492,12 @@ class Dahu_Order_Search_Sources {
 		self::note_truncation( (array) $rows, self::max_ids(), 'item_meta' );
 
 		foreach ( (array) $rows as $row ) {
-			Dahu_Order_Search_Results::add(
+			Ubac_Search_Results::add(
 				$found,
 				(int) $row['order_id'],
 				/* translators: 1: meta key, 2: the matching value. */
 				sprintf( __( 'Order line %1$s: %2$s', 'ubac-search' ), $row['meta_key'], self::excerpt( $row['meta_value'], $term ) ),
-				Dahu_Order_Search_Results::RANK_META
+				Ubac_Search_Results::RANK_META
 			);
 		}
 
@@ -534,7 +534,7 @@ class Dahu_Order_Search_Sources {
 		self::note_truncation( (array) $rows, self::max_ids(), 'notes' );
 
 		foreach ( (array) $rows as $row ) {
-			Dahu_Order_Search_Results::add(
+			Ubac_Search_Results::add(
 				$found,
 				(int) $row['order_id'],
 				sprintf(
@@ -543,7 +543,7 @@ class Dahu_Order_Search_Sources {
 					date_i18n( get_option( 'date_format' ), (int) mysql2date( 'U', $row['comment_date'] ) ),
 					self::excerpt( $row['comment_content'], $term )
 				),
-				Dahu_Order_Search_Results::RANK_NOTE
+				Ubac_Search_Results::RANK_NOTE
 			);
 		}
 
@@ -572,7 +572,7 @@ class Dahu_Order_Search_Sources {
 	public static function linked_orders( array $order_ids ) {
 		global $wpdb;
 
-		$keys      = Dahu_Order_Search_Settings::lines( 'link_meta_keys' );
+		$keys      = Ubac_Search_Settings::lines( 'link_meta_keys' );
 		$order_ids = array_values( array_unique( array_filter( array_map( 'intval', $order_ids ) ) ) );
 		$found     = array();
 
@@ -603,12 +603,12 @@ class Dahu_Order_Search_Sources {
 		);
 
 		foreach ( (array) $rows as $row ) {
-			Dahu_Order_Search_Results::add(
+			Ubac_Search_Results::add(
 				$found,
 				(int) $row['order_id'],
 				/* translators: %d: the order this one is linked to. */
 				sprintf( __( 'Linked to order #%d', 'ubac-search' ), (int) $row['meta_value'] ),
-				Dahu_Order_Search_Results::RANK_LINKED
+				Ubac_Search_Results::RANK_LINKED
 			);
 		}
 
@@ -631,12 +631,12 @@ class Dahu_Order_Search_Sources {
 				continue;
 			}
 
-			Dahu_Order_Search_Results::add(
+			Ubac_Search_Results::add(
 				$found,
 				$target,
 				/* translators: %d: the order that links to this one. */
 				sprintf( __( 'Linked from order #%d', 'ubac-search' ), (int) $row['order_id'] ),
-				Dahu_Order_Search_Results::RANK_LINKED
+				Ubac_Search_Results::RANK_LINKED
 			);
 		}
 
@@ -727,7 +727,7 @@ class Dahu_Order_Search_Sources {
 		 *
 		 * @param string[] $types Default array( 'shop_order' ).
 		 */
-		$types = (array) apply_filters( 'dahu_order_search_order_post_types', array( 'shop_order' ) );
+		$types = (array) apply_filters( 'ubac_search_order_post_types', array( 'shop_order' ) );
 		$types = array_values( array_filter( array_map( 'strval', $types ), 'strlen' ) );
 
 		return $types ? $types : array( 'shop_order' );
@@ -783,9 +783,9 @@ class Dahu_Order_Search_Sources {
 		 *
 		 * @since 1.0.0
 		 *
-		 * @param int $max Default Dahu_Order_Search_Sources::MAX_IDS.
+		 * @param int $max Default Ubac_Search_Sources::MAX_IDS.
 		 */
-		return max( 1, (int) apply_filters( 'dahu_order_search_max_ids', self::MAX_IDS ) );
+		return max( 1, (int) apply_filters( 'ubac_search_max_ids', self::MAX_IDS ) );
 	}
 
 	/**

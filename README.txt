@@ -1,5 +1,5 @@
 === Ubac Search ===
-Contributors: dahuconcept
+Contributors: ubacconcept
 Tags: order search, company name, order meta, tracking number, woocommerce
 Requires at least: 6.0
 Tested up to: 7.1
@@ -18,7 +18,7 @@ search handles the first and not much else — and it misses even that when the
 order is a business whose billing name is empty and whose company carries the
 whole identity.
 
-Dahu Order Search adds sources to the search box above the order list. What
+Ubac Order Search adds sources to the search box above the order list. What
 they find is merged with WooCommerce's own results and ranked by how well it
 matches. It never replaces the search you already know.
 
@@ -69,7 +69,7 @@ default, and switching it off gives WooCommerce's behaviour back.
 = For developers =
 
 Other plugins can register sources of their own through the
-`dahu_order_search_sources` filter: a label, a callback taking the search term,
+`ubac_search_sources` filter: a label, a callback taking the search term,
 a rank, and optionally an entry in the search dropdown. A source with its own
 dropdown entry runs alone when that entry is chosen. Full example in README.md.
 

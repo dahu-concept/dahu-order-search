@@ -1,4 +1,4 @@
-# Dahu Order Search
+# Ubac Order Search
 
 Trouve les commandes que la recherche de WooCommerce rate, et les ajoute aux
 résultats que vous obtenez déjà.
@@ -108,7 +108,7 @@ qu'il a trouvées. Trois formes de retour sont acceptées ; la plus simple est
 
 ```php
 add_filter(
-	'dahu_order_search_sources',
+	'ubac_search_sources',
 	function ( array $sources ) {
 		$sources['garantie'] = array(
 			'label'    => 'Numéro de dossier de garantie',
@@ -173,9 +173,9 @@ plus mauvais résultat, et beaucoup plus difficile à imputer.
 
 | Filtre | Ce qu'il fait |
 |---|---|
-| `dahu_order_search_sources` | Enregistrer, retirer ou renommer des sources. |
-| `dahu_order_search_max_ids` | Le nombre maximal de commandes qu'une source peut remonter sur une recherche. 1000 par défaut. Il vaut aussi pour les sources enregistrées, pas seulement pour les intégrées. |
-| `dahu_order_search_order_post_types` | Sur le magasin historique, les types de contenu traités comme des commandes. `shop_order` par défaut. |
+| `ubac_search_sources` | Enregistrer, retirer ou renommer des sources. |
+| `ubac_search_max_ids` | Le nombre maximal de commandes qu'une source peut remonter sur une recherche. 1000 par défaut. Il vaut aussi pour les sources enregistrées, pas seulement pour les intégrées. |
+| `ubac_search_order_post_types` | Sur le magasin historique, les types de contenu traités comme des commandes. `shop_order` par défaut. |
 
 ---
 

@@ -6,7 +6,7 @@
  * and never writes any, so there is nothing of the shop's to take away with
  * it.
  *
- * @package DahuOrderSearch
+ * @package UbacSearch
  */
 
 defined( 'WP_UNINSTALL_PLUGIN' ) || exit;
@@ -25,15 +25,15 @@ if ( is_multisite() ) {
 
 	foreach ( $sites as $site_id ) {
 		switch_to_blog( (int) $site_id );
-		delete_option( 'dahu_order_search_settings' );
-		delete_option( 'dahu_welcome_seen_dahu-order-search' );
-		delete_option( 'dahu_welcome_pending_dahu-order-search' );
-		delete_option( 'dahu_welcome_tour_dahu-order-search' );
+		delete_option( 'ubac_search_settings' );
+		delete_option( 'ubac_welcome_seen_ubac-search' );
+		delete_option( 'ubac_welcome_pending_ubac-search' );
+		delete_option( 'ubac_welcome_tour_ubac-search' );
 		restore_current_blog();
 	}
 } else {
-	delete_option( 'dahu_order_search_settings' );
-	delete_option( 'dahu_welcome_seen_dahu-order-search' );
-	delete_option( 'dahu_welcome_pending_dahu-order-search' );
-	delete_option( 'dahu_welcome_tour_dahu-order-search' );
+	delete_option( 'ubac_search_settings' );
+	delete_option( 'ubac_welcome_seen_ubac-search' );
+	delete_option( 'ubac_welcome_pending_ubac-search' );
+	delete_option( 'ubac_welcome_tour_ubac-search' );
 }

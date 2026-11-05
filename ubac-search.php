@@ -14,16 +14,16 @@
  * WC requires at least: 7.0
  * WC tested up to:   11.2
  *
- * @package DahuOrderSearch
+ * @package UbacSearch
  */
 
 defined( 'ABSPATH' ) || exit;
 
-define( 'DAHU_ORDER_SEARCH_VERSION', '1.1.0' );
-define( 'DAHU_ORDER_SEARCH_FILE', __FILE__ );
-define( 'DAHU_ORDER_SEARCH_PATH', plugin_dir_path( __FILE__ ) );
-define( 'DAHU_ORDER_SEARCH_URL', plugin_dir_url( __FILE__ ) );
-define( 'DAHU_ORDER_SEARCH_PAGE', 'dahu-order-search' );
+define( 'UBAC_SEARCH_VERSION', '1.1.0' );
+define( 'UBAC_SEARCH_FILE', __FILE__ );
+define( 'UBAC_SEARCH_PATH', plugin_dir_path( __FILE__ ) );
+define( 'UBAC_SEARCH_URL', plugin_dir_url( __FILE__ ) );
+define( 'UBAC_SEARCH_PAGE', 'ubac-search' );
 
 /* -------------------------------------------------------------------------
  * Translations
@@ -41,11 +41,11 @@ define( 'DAHU_ORDER_SEARCH_PAGE', 'dahu-order-search' );
 
 spl_autoload_register(
 	static function ( $class ) {
-		if ( 0 !== strpos( $class, 'Dahu_Order_Search_' ) ) {
+		if ( 0 !== strpos( $class, 'Ubac_Search_' ) ) {
 			return;
 		}
 
-		$file = DAHU_ORDER_SEARCH_PATH . 'includes/class-' . strtolower( str_replace( '_', '-', $class ) ) . '.php';
+		$file = UBAC_SEARCH_PATH . 'includes/class-' . strtolower( str_replace( '_', '-', $class ) ) . '.php';
 
 		if ( is_readable( $file ) ) {
 			require_once $file;
@@ -65,7 +65,7 @@ add_action(
 	'before_woocommerce_init',
 	static function () {
 		if ( class_exists( '\Automattic\WooCommerce\Utilities\FeaturesUtil' ) ) {
-			\Automattic\WooCommerce\Utilities\FeaturesUtil::declare_compatibility( 'custom_order_tables', DAHU_ORDER_SEARCH_FILE, true );
+			\Automattic\WooCommerce\Utilities\FeaturesUtil::declare_compatibility( 'custom_order_tables', UBAC_SEARCH_FILE, true );
 		}
 	}
 );
@@ -90,7 +90,7 @@ add_action(
 
 					printf(
 						'<div class="notice notice-warning"><p>%s</p></div>',
-						esc_html__( 'Dahu Order Search needs WooCommerce. It is doing nothing until WooCommerce is active.', 'ubac-search' )
+						esc_html__( 'Ubac Order Search needs WooCommerce. It is doing nothing until WooCommerce is active.', 'ubac-search' )
 					);
 				}
 			);
@@ -102,8 +102,8 @@ add_action(
 			return;
 		}
 
-		Dahu_Order_Search_Settings::init();
-		Dahu_Order_Search_List_Table::init();
+		Ubac_Search_Settings::init();
+		Ubac_Search_List_Table::init();
 	},
 	20
 );
@@ -122,7 +122,7 @@ add_filter(
 			$links,
 			sprintf(
 				'<a href="%s">%s</a>',
-				esc_url( admin_url( 'admin.php?page=' . DAHU_ORDER_SEARCH_PAGE ) ),
+				esc_url( admin_url( 'admin.php?page=' . UBAC_SEARCH_PAGE ) ),
 				esc_html__( 'Settings', 'ubac-search' )
 			)
 		);
@@ -137,7 +137,7 @@ add_filter(
  * Registered here rather than inside the admin include, because the
  * activation flag has to be set whatever else is loaded.
  */
-require_once DAHU_ORDER_SEARCH_PATH . 'includes/dahu-welcome.php';
+require_once UBAC_SEARCH_PATH . 'includes/ubac-welcome.php';
 
 /*
  * The flag, not a redirect: an activation hook that redirects breaks bulk
@@ -148,21 +148,21 @@ require_once DAHU_ORDER_SEARCH_PATH . 'includes/dahu-welcome.php';
 register_activation_hook(
 	__FILE__,
 	static function () {
-		Dahu_Welcome::mark_activated( 'dahu-order-search' );
+		Ubac_Welcome::mark_activated( 'ubac-search' );
 	}
 );
 
 add_action(
 	'init',
 	static function () {
-		Dahu_Welcome::register(
+		Ubac_Welcome::register(
 			array(
-				'slug'       => 'dahu-order-search',
+				'slug'       => 'ubac-search',
 				'name'       => __( 'Order search', 'ubac-search' ),
 				'tagline'    => __( 'Finds an order by what the customer tells you on the telephone.', 'ubac-search' ),
-				'file'       => DAHU_ORDER_SEARCH_FILE,
-				'version'    => DAHU_ORDER_SEARCH_VERSION,
-				'textdomain' => 'dahu-order-search',
+				'file'       => UBAC_SEARCH_FILE,
+				'version'    => UBAC_SEARCH_VERSION,
+				'textdomain' => 'ubac-search',
 				'mark'       => array(
 					'view'  => '0 0 112 112',
 					'paths' => array(
@@ -205,20 +205,20 @@ add_action(
 				 * skipped without a sound. The source checkboxes sit in a loop
 				 * over registered sources, so the card holding them is used.
 				 */
-				'tour_screen' => 'woocommerce_page_dahu-order-search',
+				'tour_screen' => 'woocommerce_page_ubac-search',
 				'tour'        => array(
 					array(
-						'selector' => '.dahu-ui-card',
+						'selector' => '.ubac-ui-card',
 						'title'    => __( 'Added, never replaced', 'ubac-search' ),
 						'text'     => __( 'Extra sources add to the native search results.', 'ubac-search' ),
 					),
 					array(
-						'selector' => '#dahu-order-search-order-meta',
+						'selector' => '#ubac-search-order-meta',
 						'title'    => __( 'Add your own keys', 'ubac-search' ),
 						'text'     => __( 'One order meta key per line, such as a tracking number.', 'ubac-search' ),
 					),
 					array(
-						'selector' => '#dahu-order-search-min',
+						'selector' => '#ubac-search-min',
 						'title'    => __( 'Shortest term', 'ubac-search' ),
 						'text'     => __( 'Below this length, only the native search answers.', 'ubac-search' ),
 					),
