@@ -339,8 +339,17 @@ class Ubac_Search_Sources {
 
 			$params[] = $limit;
 
-			// phpcs:ignore WordPress.DB.PreparedSQL.InterpolatedNotPrepared,WordPress.DB.PreparedSQLPlaceholders.UnfinishedPrepare -- $pair holds placeholders only.
+			/* WHY "ReplacementsWrongNumber" IS IGNORED HERE TOO.
+			 *
+			 * The arguments are passed as an ARRAY, which prepare() has always
+			 * accepted. The sniff counts the arguments at the call site instead: it
+			 * sees one -- the array -- against nine placeholders, and announces an
+			 * incorrect replacement count. The real count is right, and it is built
+			 * just above. Ignoring the sniff without writing this down would look
+			 * like smothering a genuine placeholder mismatch. */
+	// phpcs:ignore WordPress.DB.PreparedSQL.InterpolatedNotPrepared,WordPress.DB.PreparedSQLPlaceholders.UnfinishedPrepare,WordPress.DB.PreparedSQLPlaceholders.ReplacementsWrongNumber -- $pair holds placeholders only.
 			$partial = $wpdb->get_results(
+				// phpcs:ignore WordPress.DB.PreparedSQLPlaceholders.ReplacementsWrongNumber -- the arguments are passed as an array; see the note above.
 				$wpdb->prepare(
 					"SELECT DISTINCT {$cols} FROM {$table}
 					WHERE company LIKE %s OR phone LIKE %s OR email LIKE %s
@@ -413,8 +422,9 @@ class Ubac_Search_Sources {
 		// two meta keys replaces a REPLACE() on the joined column, which
 		// defeated the meta_key index on every two-word search — and "jean
 		// dupont" is the most ordinary search there is.
-		// phpcs:ignore WordPress.DB.PreparedSQL.InterpolatedNotPrepared,WordPress.DB.PreparedSQLPlaceholders.UnfinishedPrepare -- tables are fixed, the rest are generated placeholders.
+		// phpcs:ignore WordPress.DB.PreparedSQL.InterpolatedNotPrepared,WordPress.DB.PreparedSQLPlaceholders.UnfinishedPrepare,WordPress.DB.PreparedSQLPlaceholders.ReplacementsWrongNumber -- tables are fixed, the rest are generated placeholders.
 		$joined = $wpdb->get_results(
+			// phpcs:ignore WordPress.DB.PreparedSQLPlaceholders.ReplacementsWrongNumber -- the arguments are passed as an array; see the note above.
 			$wpdb->prepare(
 				"SELECT fn.post_id AS order_id, fn.meta_key, fn.meta_value AS first_name, ln.meta_value AS last_name
 				FROM {$wpdb->postmeta} fn
@@ -504,8 +514,9 @@ class Ubac_Search_Sources {
 
 		$params[] = self::max_ids();
 
-		// phpcs:ignore WordPress.DB.PreparedSQL.InterpolatedNotPrepared,WordPress.DB.PreparedSQLPlaceholders.UnfinishedPrepare -- $key_sql holds placeholders or a literal.
+		// phpcs:ignore WordPress.DB.PreparedSQL.InterpolatedNotPrepared,WordPress.DB.PreparedSQLPlaceholders.UnfinishedPrepare,WordPress.DB.PreparedSQLPlaceholders.ReplacementsWrongNumber -- $key_sql holds placeholders or a literal.
 		$rows = $wpdb->get_results(
+			// phpcs:ignore WordPress.DB.PreparedSQLPlaceholders.ReplacementsWrongNumber -- the arguments are passed as an array; see the note above.
 			$wpdb->prepare(
 				"SELECT DISTINCT oi.order_id, oim.meta_key, oim.meta_value
 				FROM {$wpdb->prefix}woocommerce_order_itemmeta oim
@@ -623,8 +634,9 @@ class Ubac_Search_Sources {
 		$params = array_merge( $keys, array_map( 'strval', $order_ids ), array( self::max_ids() ) );
 
 		// Direction 1: another order points at one of ours.
-		// phpcs:ignore WordPress.DB.PreparedSQL.InterpolatedNotPrepared,WordPress.DB.PreparedSQLPlaceholders.UnfinishedPrepare -- table and column are fixed, the rest are generated placeholders.
+		// phpcs:ignore WordPress.DB.PreparedSQL.InterpolatedNotPrepared,WordPress.DB.PreparedSQLPlaceholders.UnfinishedPrepare,WordPress.DB.PreparedSQLPlaceholders.ReplacementsWrongNumber -- table and column are fixed, the rest are generated placeholders.
 		$rows = $wpdb->get_results(
+			// phpcs:ignore WordPress.DB.PreparedSQLPlaceholders.ReplacementsWrongNumber -- the arguments are passed as an array; see the note above.
 			$wpdb->prepare(
 				"SELECT DISTINCT {$id_col} AS order_id, meta_value FROM {$table} WHERE meta_key IN ( {$key_ph} ) AND meta_value IN ( {$id_ph} ) LIMIT %d",
 				$params
@@ -645,8 +657,9 @@ class Ubac_Search_Sources {
 		// Direction 2: one of ours points at another order.
 		$params = array_merge( $keys, array_map( 'strval', $order_ids ), array( self::max_ids() ) );
 
-		// phpcs:ignore WordPress.DB.PreparedSQL.InterpolatedNotPrepared,WordPress.DB.PreparedSQLPlaceholders.UnfinishedPrepare -- table and column are fixed, the rest are generated placeholders.
+		// phpcs:ignore WordPress.DB.PreparedSQL.InterpolatedNotPrepared,WordPress.DB.PreparedSQLPlaceholders.UnfinishedPrepare,WordPress.DB.PreparedSQLPlaceholders.ReplacementsWrongNumber -- table and column are fixed, the rest are generated placeholders.
 		$rows = $wpdb->get_results(
+			// phpcs:ignore WordPress.DB.PreparedSQLPlaceholders.ReplacementsWrongNumber -- the arguments are passed as an array; see the note above.
 			$wpdb->prepare(
 				"SELECT DISTINCT {$id_col} AS order_id, meta_value FROM {$table} WHERE meta_key IN ( {$key_ph} ) AND {$id_col} IN ( {$id_ph} ) LIMIT %d",
 				$params
@@ -698,8 +711,9 @@ class Ubac_Search_Sources {
 			$table  = $wpdb->prefix . 'wc_orders_meta';
 			$params = array_merge( $keys, array( $like, $limit ) );
 
-			// phpcs:ignore WordPress.DB.PreparedSQL.InterpolatedNotPrepared,WordPress.DB.PreparedSQLPlaceholders.UnfinishedPrepare -- table and column are fixed, the rest are generated placeholders.
+			// phpcs:ignore WordPress.DB.PreparedSQL.InterpolatedNotPrepared,WordPress.DB.PreparedSQLPlaceholders.UnfinishedPrepare,WordPress.DB.PreparedSQLPlaceholders.ReplacementsWrongNumber -- table and column are fixed, the rest are generated placeholders.
 			$rows = $wpdb->get_results(
+				// phpcs:ignore WordPress.DB.PreparedSQLPlaceholders.ReplacementsWrongNumber -- the arguments are passed as an array; see the note above.
 				$wpdb->prepare(
 					"SELECT order_id AS order_id, meta_key, meta_value FROM {$table} WHERE meta_key IN ( {$key_ph} ) AND meta_value LIKE %s ORDER BY order_id DESC LIMIT %d",
 					$params
@@ -727,8 +741,9 @@ class Ubac_Search_Sources {
 		$typ_ph = implode( ', ', array_fill( 0, count( $types ), '%s' ) );
 		$params = array_merge( $keys, array( $like ), $types, array( $limit ) );
 
-		// phpcs:ignore WordPress.DB.PreparedSQL.InterpolatedNotPrepared,WordPress.DB.PreparedSQLPlaceholders.UnfinishedPrepare -- tables are fixed, the rest are generated placeholders.
+		// phpcs:ignore WordPress.DB.PreparedSQL.InterpolatedNotPrepared,WordPress.DB.PreparedSQLPlaceholders.UnfinishedPrepare,WordPress.DB.PreparedSQLPlaceholders.ReplacementsWrongNumber -- tables are fixed, the rest are generated placeholders.
 		$rows = $wpdb->get_results(
+			// phpcs:ignore WordPress.DB.PreparedSQLPlaceholders.ReplacementsWrongNumber -- the arguments are passed as an array; see the note above.
 			$wpdb->prepare(
 				"SELECT pm.post_id AS order_id, pm.meta_key, pm.meta_value
 				FROM {$wpdb->postmeta} pm
