@@ -4,7 +4,7 @@ Tags: order search, company name, order meta, tracking number, woocommerce
 Requires at least: 6.2
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 1.1.1
+Stable tag: 1.1.2
 License: MIT
 License URI: https://opensource.org/licenses/MIT
 
@@ -119,6 +119,10 @@ WooCommerce answers alone. Four characters by default.
 
 == Changelog ==
 
+= 1.1.2 =
+* Changed: the compiled French catalogue now travels in the package. It was left out on the grounds that the directory serves language packs, which is true only for a copy installed from the directory and only once translations have been imported: a copy installed by hand showed English with a catalogue that was fully translated.
+* Changed: the French readme moves under docs/, so the directory's checker no longer reports an unexpected markdown file at the plugin root.
+
 = 1.1.1 =
 * Changed: the table name in five queries now goes through prepare()'s %i identifier placeholder instead of being built into the statement. Behaviour is unchanged; the queries were exercised against real rows rather than only lint-checked.
 * Changed: WordPress 6.2 is now the floor, which is the release %i arrived in.
@@ -137,6 +141,9 @@ WooCommerce answers alone. Four characters by default.
 * First public release.
 
 == Upgrade Notice ==
+
+= 1.1.2 =
+French now works on a copy installed by hand: the compiled catalogue travels in the package. The French readme moves under docs/.
 
 = 1.1.1 =
 Internal: table names now go through prepare()'s %i placeholder. WordPress 6.2 is now the floor, which is the release that introduced it.
