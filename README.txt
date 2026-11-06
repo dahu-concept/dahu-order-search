@@ -4,7 +4,7 @@ Tags: order search, company name, order meta, tracking number, woocommerce
 Requires at least: 6.2
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 1.1.0
+Stable tag: 1.1.1
 License: MIT
 License URI: https://opensource.org/licenses/MIT
 
@@ -119,6 +119,10 @@ WooCommerce answers alone. Four characters by default.
 
 == Changelog ==
 
+= 1.1.1 =
+* Changed: the table name in five queries now goes through prepare()'s %i identifier placeholder instead of being built into the statement. Behaviour is unchanged; the queries were exercised against real rows rather than only lint-checked.
+* Changed: WordPress 6.2 is now the floor, which is the release %i arrived in.
+
 = 1.1.0 =
 * Add-ons that registered a search source under the filter's previous name keep working. The name changed when this plugin was renamed, and an add-on already installed cannot be updated at the same moment as the plugin: a shop looking an order up by a value only that add-on knew about would simply have stopped finding it, with nothing on screen to say why. The previous name is honoured for this release and will be removed in a later one.
 * The activation screen now opens on the plugin's own mark rather than its initials, and the banner carries the same drawing as a watermark.
@@ -133,6 +137,9 @@ WooCommerce answers alone. Four characters by default.
 * First public release.
 
 == Upgrade Notice ==
+
+= 1.1.1 =
+Internal: table names now go through prepare()'s %i placeholder. WordPress 6.2 is now the floor, which is the release that introduced it.
 
 = 1.0.0 =
 First public release.
