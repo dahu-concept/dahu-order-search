@@ -1,6 +1,6 @@
 <?php
 /**
- * Plugin Name:       Ubac Search
+ * Plugin Name:       Ubac Order Search
  * Description:       Finds the orders WooCommerce's own search misses: a company name on a B2B order with no customer name, a phone number, an order note, a tracking or invoice number held in order meta, a value on an order line. Results are added to the native search, never substituted for it, and ranked by how well they match. Other plugins can register sources of their own.
  * Version:           1.1.0
  * Author:            Hugo Vial-Jaime
