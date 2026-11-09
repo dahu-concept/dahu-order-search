@@ -1,31 +1,31 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: ubac-search\n"
+"Project-Id-Version: dahuconcept-order-search\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: fr_FR\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"PO-Revision-Date: 2026-10-24 10:16+0000\n"
+"PO-Revision-Date: 2026-11-09 07:30+0000\n"
 "X-Generator: ubac i18n-build\n"
 
-#: ubac-search.php:191
+#: dahuconcept-order-search.php:190
 msgid "A surname, part of an address, a telephone number, a serial."
 msgstr "Un nom, un bout d’adresse, un téléphone, un numéro de série."
 
-#: ubac-search.php:218
+#: dahuconcept-order-search.php:217
 msgid "Add your own keys"
 msgstr "Ajoutez vos propres clés"
 
-#: ubac-search.php:213
+#: dahuconcept-order-search.php:212
 msgid "Added, never replaced"
 msgstr "Ajouté, jamais remplacé"
 
-#: ubac-search.php:190
+#: dahuconcept-order-search.php:189
 msgid "Any detail"
 msgstr "N’importe quel détail"
 
-#: ubac-search.php:224
+#: dahuconcept-order-search.php:223
 msgid "Below this length, only the native search answers."
 msgstr "En dessous de cette longueur, seule la recherche native répond."
 
@@ -33,15 +33,15 @@ msgstr "En dessous de cette longueur, seule la recherche native répond."
 msgid "Below this many characters the extra sources do not run, and the native search is left to answer on its own."
 msgstr "En deçà de ce nombre de caractères, les sources supplémentaires ne tournent pas et la recherche native répond seule."
 
-#: includes/class-ubac-search-sources.php:245
+#: includes/class-ubac-search-sources.php:275
 msgid "Billing address: %s"
 msgstr "Adresse de facturation : %s"
 
-#: ubac-search.php:194
+#: dahuconcept-order-search.php:193
 msgid "Both stores"
 msgstr "Les deux stockages"
 
-#: ubac-search.php:199
+#: dahuconcept-order-search.php:198
 msgid "Built for somebody with a customer waiting."
 msgstr "Pensée pour quelqu’un qui a un client en ligne."
 
@@ -49,23 +49,23 @@ msgstr "Pensée pour quelqu’un qui a un client en ligne."
 msgid "Customer — company, phone, email, name, street, town, postcode, on both the billing and the shipping address"
 msgstr "Client — société, téléphone, e-mail, nom, rue, ville, code postal, sur l'adresse de facturation comme sur celle de livraison"
 
-#: ubac-search.php:94
-msgid "Ubac Order Search needs WooCommerce. It is doing nothing until WooCommerce is active."
-msgstr "Ubac Order Search a besoin de WooCommerce. Il ne fait rien tant que WooCommerce n'est pas actif."
+#: dahuconcept-order-search.php:93
+msgid "DahuConcept Order Search needs WooCommerce. It is doing nothing until WooCommerce is active."
+msgstr "DahuConcept Order Search a besoin de WooCommerce. Il ne fait rien tant que WooCommerce n'est pas actif."
 
-#: ubac-search.php:183
+#: dahuconcept-order-search.php:182
 msgid "Done"
 msgstr "Terminé"
 
-#: ubac-search.php:214
+#: dahuconcept-order-search.php:213
 msgid "Extra sources add to the native search results."
 msgstr "Les sources supplémentaires s'ajoutent aux résultats de la recherche native."
 
-#: ubac-search.php:198
+#: dahuconcept-order-search.php:197
 msgid "Fast where it matters"
 msgstr "Rapide là où il faut"
 
-#: ubac-search.php:163 includes/class-ubac-search-settings.php:247
+#: dahuconcept-order-search.php:162 includes/class-ubac-search-settings.php:247
 msgid "Finds an order by what the customer tells you on the telephone."
 msgstr "Retrouve une commande avec ce que le client vous dit au téléphone."
 
@@ -73,7 +73,7 @@ msgstr "Retrouve une commande avec ce que le client vous dit au téléphone."
 msgid "Left alone, WooCommerce shows every order in the shop instead, which reads as a search that stopped working. Switch this off to get WooCommerce's own behaviour back."
 msgstr "Sans cette correction, WooCommerce affiche à la place toutes les commandes de la boutique, ce qui se lit comme une recherche en panne. Décochez pour retrouver le comportement d'origine."
 
-#: includes/class-ubac-search-sources.php:638
+#: includes/class-ubac-search-sources.php:682
 msgid "Linked from order #%d"
 msgstr "Liée depuis la commande n° %d"
 
@@ -85,16 +85,16 @@ msgstr "Clés de méta de commande liée"
 msgid "Linked orders — also show orders whose meta points at a found order, and the orders a found order points at (returns, replacements, renewals)"
 msgstr "Commandes liées — afficher aussi les commandes dont une méta pointe vers une commande trouvée, et celles vers lesquelles une commande trouvée pointe (retours, remplacements, renouvellements)"
 
-#: includes/class-ubac-search-sources.php:610
+#: includes/class-ubac-search-sources.php:653
 msgid "Linked to order #%d"
 msgstr "Liée à la commande n° %d"
 
-#: ubac-search.php:182
+#: dahuconcept-order-search.php:181
 msgid "Next"
 msgstr "Suivant"
 
 #. translators: 1: date, 2: an excerpt of the note. */
-#: includes/class-ubac-search-sources.php:542
+#: includes/class-ubac-search-sources.php:584
 msgid "Note of %1$s: %2$s"
 msgstr "Note du %1$s : %2$s"
 
@@ -110,11 +110,11 @@ msgstr "Une clé par ligne. Un numéro de suivi, un numéro de facture, une réf
 msgid "One key per line. Keys whose value is another order's number. Both directions are followed, because only one of them is ever stored."
 msgstr "Une clé par ligne. Des clés dont la valeur est le numéro d'une autre commande. Les deux sens sont suivis, parce qu'un seul des deux est jamais enregistré."
 
-#: ubac-search.php:219
+#: dahuconcept-order-search.php:218
 msgid "One order meta key per line, such as a tracking number."
 msgstr "Une clé méta de commande par ligne, un numéro de suivi par exemple."
 
-#: includes/class-ubac-search-sources.php:499
+#: includes/class-ubac-search-sources.php:541
 msgid "Order line %1$s: %2$s"
 msgstr "Article : %1$s = %2$s"
 
@@ -126,7 +126,7 @@ msgstr "Clés de méta d'article"
 msgid "Order line meta — the keys listed below (a serial number typed on a line, an engraving, a size)"
 msgstr "Métas d'article — les clés listées ci-dessous (un numéro de série saisi sur une ligne, une gravure, une taille)"
 
-#: includes/class-ubac-search-sources.php:439
+#: includes/class-ubac-search-sources.php:480
 msgid "Order meta %1$s: %2$s"
 msgstr "Commande : %1$s = %2$s"
 
@@ -142,7 +142,7 @@ msgstr "Métas de commande — les clés listées ci-dessous (numéro de suivi, 
 msgid "Order notes"
 msgstr "Notes de commande"
 
-#: ubac-search.php:162 includes/class-ubac-search-settings.php:184 includes/class-ubac-search-settings.php:185 includes/class-ubac-search-settings.php:246
+#: dahuconcept-order-search.php:161 includes/class-ubac-search-settings.php:184 includes/class-ubac-search-settings.php:185 includes/class-ubac-search-settings.php:246
 msgid "Order search"
 msgstr "Recherche de commandes"
 
@@ -150,11 +150,11 @@ msgstr "Recherche de commandes"
 msgid "Return nothing when the \"Order ID\" filter is used with text that is not a number"
 msgstr "Ne rien renvoyer quand le filtre « N° de commande » est employé avec un texte qui n'est pas un nombre"
 
-#: ubac-search.php:127
+#: dahuconcept-order-search.php:126
 msgid "Settings"
 msgstr "Réglages"
 
-#: includes/class-ubac-search-sources.php:243
+#: includes/class-ubac-search-sources.php:273
 msgid "Shipping address: %s"
 msgstr "Adresse de livraison : %s"
 
@@ -162,11 +162,11 @@ msgstr "Adresse de livraison : %s"
 msgid "Shortest search term"
 msgstr "Terme de recherche le plus court"
 
-#: ubac-search.php:223
+#: dahuconcept-order-search.php:222
 msgid "Shortest term"
 msgstr "Terme le plus court"
 
-#: ubac-search.php:184
+#: dahuconcept-order-search.php:183
 msgid "Skip"
 msgstr "Passer"
 
@@ -182,11 +182,11 @@ msgstr "Pour trouver la clé sous laquelle une valeur est stockée, ouvrez une c
 msgid "WooCommerce correction"
 msgstr "Correction WooCommerce"
 
-#: ubac-search.php:195
+#: dahuconcept-order-search.php:194
 msgid "Works whichever order storage the shop is on."
 msgstr "Fonctionne quel que soit le stockage de commandes de la boutique."
 
-#: ubac-search.php:186
+#: dahuconcept-order-search.php:185
 msgid "You are not allowed to view this page."
 msgstr "Vous n’avez pas l’autorisation de voir cette page."
 
@@ -194,7 +194,7 @@ msgstr "Vous n’avez pas l’autorisation de voir cette page."
 msgid "You do not have permission to change these settings."
 msgstr "Vous n'avez pas l'autorisation de modifier ces réglages."
 
-#: ubac-search.php:185
+#: dahuconcept-order-search.php:184
 msgid "of"
 msgstr "sur"
 

@@ -71,22 +71,22 @@ class Ubac_Search_Sources {
 	public static function registered() {
 		$sources = array(
 			'addresses'  => array(
-				'label'    => __( 'Customer — company, phone, email, name, street, town, postcode, on both the billing and the shipping address', 'ubac-search' ),
+				'label'    => __( 'Customer — company, phone, email, name, street, town, postcode, on both the billing and the shipping address', 'dahuconcept-order-search' ),
 				'callback' => array( __CLASS__, 'addresses' ),
 				'rank'     => Ubac_Search_Results::RANK_ADDRESS,
 			),
 			'order_meta' => array(
-				'label'    => __( 'Order meta — the keys listed below (tracking number, invoice number, external reference…)', 'ubac-search' ),
+				'label'    => __( 'Order meta — the keys listed below (tracking number, invoice number, external reference…)', 'dahuconcept-order-search' ),
 				'callback' => array( __CLASS__, 'order_meta' ),
 				'rank'     => Ubac_Search_Results::RANK_META,
 			),
 			'item_meta'  => array(
-				'label'    => __( 'Order line meta — the keys listed below (a serial number typed on a line, an engraving, a size)', 'ubac-search' ),
+				'label'    => __( 'Order line meta — the keys listed below (a serial number typed on a line, an engraving, a size)', 'dahuconcept-order-search' ),
 				'callback' => array( __CLASS__, 'item_meta' ),
 				'rank'     => Ubac_Search_Results::RANK_META,
 			),
 			'notes'      => array(
-				'label'    => __( 'Order notes', 'ubac-search' ),
+				'label'    => __( 'Order notes', 'dahuconcept-order-search' ),
 				'callback' => array( __CLASS__, 'notes' ),
 				'rank'     => Ubac_Search_Results::RANK_NOTE,
 			),
@@ -270,9 +270,9 @@ class Ubac_Search_Sources {
 				(int) $row['order_id'],
 				'shipping' === $row['address_type']
 					/* translators: %s: customer or company name. */
-					? sprintf( __( 'Shipping address: %s', 'ubac-search' ), $who )
+					? sprintf( __( 'Shipping address: %s', 'dahuconcept-order-search' ), $who )
 					/* translators: %s: customer or company name. */
-					: sprintf( __( 'Billing address: %s', 'ubac-search' ), $who ),
+					: sprintf( __( 'Billing address: %s', 'dahuconcept-order-search' ), $who ),
 				$exact ? Ubac_Search_Results::RANK_EXACT : Ubac_Search_Results::RANK_ADDRESS
 			);
 		}
@@ -477,7 +477,7 @@ class Ubac_Search_Sources {
 				$found,
 				(int) $row['order_id'],
 				/* translators: 1: meta key, 2: the matching value. */
-				sprintf( __( 'Order meta %1$s: %2$s', 'ubac-search' ), $row['meta_key'], self::excerpt( $row['meta_value'], $term ) ),
+				sprintf( __( 'Order meta %1$s: %2$s', 'dahuconcept-order-search' ), $row['meta_key'], self::excerpt( $row['meta_value'], $term ) ),
 				Ubac_Search_Results::RANK_META
 			);
 		}
@@ -538,7 +538,7 @@ class Ubac_Search_Sources {
 				$found,
 				(int) $row['order_id'],
 				/* translators: 1: meta key, 2: the matching value. */
-				sprintf( __( 'Order line %1$s: %2$s', 'ubac-search' ), $row['meta_key'], self::excerpt( $row['meta_value'], $term ) ),
+				sprintf( __( 'Order line %1$s: %2$s', 'dahuconcept-order-search' ), $row['meta_key'], self::excerpt( $row['meta_value'], $term ) ),
 				Ubac_Search_Results::RANK_META
 			);
 		}
@@ -581,7 +581,7 @@ class Ubac_Search_Sources {
 				(int) $row['order_id'],
 				sprintf(
 					/* translators: 1: date, 2: an excerpt of the note. */
-					__( 'Note of %1$s: %2$s', 'ubac-search' ),
+					__( 'Note of %1$s: %2$s', 'dahuconcept-order-search' ),
 					date_i18n( get_option( 'date_format' ), (int) mysql2date( 'U', $row['comment_date'] ) ),
 					self::excerpt( $row['comment_content'], $term )
 				),
@@ -650,7 +650,7 @@ class Ubac_Search_Sources {
 				$found,
 				(int) $row['order_id'],
 				/* translators: %d: the order this one is linked to. */
-				sprintf( __( 'Linked to order #%d', 'ubac-search' ), (int) $row['meta_value'] ),
+				sprintf( __( 'Linked to order #%d', 'dahuconcept-order-search' ), (int) $row['meta_value'] ),
 				Ubac_Search_Results::RANK_LINKED
 			);
 		}
@@ -679,7 +679,7 @@ class Ubac_Search_Sources {
 				$found,
 				$target,
 				/* translators: %d: the order that links to this one. */
-				sprintf( __( 'Linked from order #%d', 'ubac-search' ), (int) $row['order_id'] ),
+				sprintf( __( 'Linked from order #%d', 'dahuconcept-order-search' ), (int) $row['order_id'] ),
 				Ubac_Search_Results::RANK_LINKED
 			);
 		}

@@ -1,4 +1,4 @@
-# Ubac Order Search
+# DahuConcept Order Search
 
 Finds the orders WooCommerce's own search misses, and adds them to the results you already get.
 

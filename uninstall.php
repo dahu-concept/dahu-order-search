@@ -27,13 +27,23 @@ if ( is_multisite() ) {
 		switch_to_blog( (int) $ubac_search_site_id );
 		delete_option( 'ubac_search_settings' );
 		delete_option( 'ubac_welcome_seen_ubac-search' );
+		// Les memes clefs sous le nouveau slug : elle est construite au runtime
+		// a partir du slug, donc elle a change avec lui. Sans ces trois lignes,
+		// une mise a jour depuis la version Ubac laisse des orphelines que plus
+		// rien ne nomme.
+		delete_option( 'ubac_welcome_seen_dahuconcept-order-search' );
 		delete_option( 'ubac_welcome_pending_ubac-search' );
+		delete_option( 'ubac_welcome_pending_dahuconcept-order-search' );
 		delete_option( 'ubac_welcome_tour_ubac-search' );
+		delete_option( 'ubac_welcome_tour_dahuconcept-order-search' );
 		restore_current_blog();
 	}
 } else {
 	delete_option( 'ubac_search_settings' );
 	delete_option( 'ubac_welcome_seen_ubac-search' );
+	delete_option( 'ubac_welcome_seen_dahuconcept-order-search' );
 	delete_option( 'ubac_welcome_pending_ubac-search' );
+	delete_option( 'ubac_welcome_pending_dahuconcept-order-search' );
 	delete_option( 'ubac_welcome_tour_ubac-search' );
+	delete_option( 'ubac_welcome_tour_dahuconcept-order-search' );
 }

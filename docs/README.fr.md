@@ -1,4 +1,4 @@
-# Ubac Order Search
+# DahuConcept Order Search
 
 Trouve les commandes que la recherche de WooCommerce rate, et les ajoute aux
 résultats que vous obtenez déjà.

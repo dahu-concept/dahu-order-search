@@ -1,4 +1,4 @@
-=== Ubac Order Search ===
+=== DahuConcept Order Search ===
 Contributors: dahuconcept
 Tags: order search, company name, order meta, tracking number, order lookup
 Requires at least: 6.2
@@ -18,7 +18,7 @@ search handles the first and not much else — and it misses even that when the
 order is a business whose billing name is empty and whose company carries the
 whole identity.
 
-Ubac Order Search adds sources to the search box above the order list. What
+DahuConcept Order Search adds sources to the search box above the order list. What
 they find is merged with WooCommerce's own results and ranked by how well it
 matches. It never replaces the search you already know.
 
