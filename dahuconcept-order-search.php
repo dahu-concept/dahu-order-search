@@ -148,7 +148,7 @@ require_once UBAC_SEARCH_PATH . 'includes/ubac-welcome.php';
 register_activation_hook(
 	__FILE__,
 	static function () {
-		Ubac_Welcome::mark_activated( 'ubac-search' );
+		Ubac_Welcome::mark_activated( 'dahuconcept-order-search' );
 	}
 );
 
@@ -157,12 +157,12 @@ add_action(
 	static function () {
 		Ubac_Welcome::register(
 			array(
-				'slug'       => 'ubac-search',
+				'slug'       => 'dahuconcept-order-search',
 				'name'       => __( 'Order search', 'dahuconcept-order-search' ),
 				'tagline'    => __( 'Finds an order by what the customer tells you on the telephone.', 'dahuconcept-order-search' ),
 				'file'       => UBAC_SEARCH_FILE,
 				'version'    => UBAC_SEARCH_VERSION,
-				'textdomain' => 'ubac-search',
+				'textdomain' => 'dahuconcept-order-search',
 				'mark'       => array(
 					'view'  => '0 0 112 112',
 					'paths' => array(
