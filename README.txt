@@ -1,4 +1,4 @@
-=== DahuConcept Order Search ===
+=== DahuConcept Order Search for WooCommerce ===
 Contributors: dahuconcept
 Tags: order search, company name, order meta, tracking number, order lookup
 Requires at least: 6.2

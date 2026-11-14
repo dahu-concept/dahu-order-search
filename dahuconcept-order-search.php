@@ -1,6 +1,6 @@
 <?php
 /**
- * Plugin Name:       DahuConcept Order Search
+ * Plugin Name:       DahuConcept Order Search for WooCommerce
  * Description:       Finds the orders WooCommerce's own search misses: a company name on a B2B order with no customer name, a phone number, an order note, a tracking or invoice number held in order meta, a value on an order line. Results are added to the native search, never substituted for it, and ranked by how well they match. Other plugins can register sources of their own.
  * Version:           1.1.3
  * Author:            Hugo Vial-Jaime
@@ -11,6 +11,7 @@
  * Domain Path:       /languages
  * Requires at least: 6.2
  * Requires PHP:      7.4
+ * Requires Plugins: woocommerce
  * WC requires at least: 7.0
  * WC tested up to:   11.2
  *
