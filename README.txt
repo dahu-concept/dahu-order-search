@@ -1,6 +1,6 @@
 === DahuConcept Order Search for WooCommerce ===
 Contributors: dahuconcept
-Tags: order search, company name, order meta, tracking number, order lookup
+Tags: order search, company name, order meta, tracking number, woocommerce
 Requires at least: 6.2
 Tested up to: 7.1
 Requires PHP: 7.4
